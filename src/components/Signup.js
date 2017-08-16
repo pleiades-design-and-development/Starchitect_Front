@@ -6,41 +6,51 @@ export default class Signup extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      name: '',
+      firstname: '',
+      lastname: '',
       callsign: '',
       email: '',
       password: '',
-      confirm: '',
-      submittedName: '',
-      submittedCallsign: '',
-      submittedEmail: '',
-      submittedPassword: '',
-      submittedConfirm: ''
     }
   }
 
   handleChange = (e, { name, value }) => {
     this.setState({ [name]: value });
-    console.log(this.state.name);
   }
 
-  handleSubmit = e => {
-    const { name, callsign, email, password, confirm } = this.state;
-    this.setState({ submittedName: name, submittedCallsign: callsign, submittedEmail: email, submittedPassword: password, submittedConfirm: confirm });
-    console.log(this.state.submittedConfirm);
+  handleSubmit = (e) => {
+    e.preventDefault();
+    let listItem = JSON.stringify(this.state);
+    
+    fetch("https://starchitect.herokuapp.com/api/v1/users", {
+      method: "POST",
+      body: listItem,
+      // headers: {
+      //   'Accept': 'application/json',
+      //   'Content-Type': 'application/json'
+      // }
+    }
+    ).then(response => {
+      console.log(response, "yay");
+
+    }).catch(err => {
+      console.log(err, "boo!");
+    });
+    this.setState({firstname: '', lastname: '', callsign: '', email: '', password:'', confirm: ''});
   }
 
   render() {
-    const { name, callsign, email, password, confirm, submittedName, submittedCallsign, submittedEmail, submittedPassword, submittedConfirm } = this.state
+    const { firstname, lastname, callsign, email, password, confirm } = this.state
 
     return (
-      <div>
-        <Form size='big' key='big'>
-          <Form.Field id='form-input-control-name' name='name' value={name} control={Input} label='What is your name, cadet?' placeholder='Name' onChange={this.handleChange} />
+      <div id='signup_container'>
+        <Form size='big' key='big' onSubmit={this.handleSubmit} id='signup'>
+          <Form.Field id='form-input-control-firstname' name='firstname' value={firstname} control={Input} label='What is your name, cadet?' placeholder='First Name' onChange={this.handleChange} />
+          <Form.Field id='form-input-control-lastname' name='lastname' value={lastname} control={Input} label='What is your family name, cadet?' placeholder='Last Name' onChange={this.handleChange} />
           <Form.Field id='form-input-control-callsign' name='callsign' value={callsign} control={Input} label='What do they call you?' placeholder='Callsign' onChange={this.handleChange} />
           <Form.Field id='form-input-control-email' name='email' value={email} control={Input} label='How can I reach you if we have a red alert?' placeholder='Email' onChange={this.handleChange} />
           <Form.Field id='form-input-control-password' name='password' value={password} control={Input} label='What is your high command authorization code?' placeholder='Password' onChange={this.handleChange} />
-          <Form.Field id='form-input-control-password' name='confirm' value={confirm} control={Input} label='What is your high command authorization code?' placeholder='Password' onChange={this.handleChange} />
+          <Form.Field id='form-input-control-confirm' name='confirm' value={confirm} control={Input} label='Please confirm your high command authorization code?' placeholder='Password' />
           <Message
             success
             header='Form Completed'
@@ -51,8 +61,13 @@ export default class Signup extends React.Component {
             header='Action Forbidden'
             content='You can only sign up for an account once with a given e-mail address.'
           />
-        <Button type='submit' onSubmit={this.handleSubmit}>Submit</Button>
+        <Button type='submit'>Submit</Button>
         </Form>
+        <div className="fullscreen-bg">
+          <video loop muted autoPlay className="fullscreen-bg__video">
+            <source src="Stars.mp4" type="video/mp4"/>
+          </video>
+        </div>
       </div>
     );
   }

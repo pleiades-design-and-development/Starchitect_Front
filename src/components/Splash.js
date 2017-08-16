@@ -1,6 +1,7 @@
 import React from 'react';
-import { Redirect } from 'react-router';
+import {Redirect} from 'react-router';
 import {Button} from 'semantic-ui-react';
+import logo from '../starchitectLogo.svg'
 
 export default class Splash extends React.Component {
 
@@ -21,24 +22,34 @@ export default class Splash extends React.Component {
 
   render() {
     if (this.state.redirect_signup) {
-      return <Redirect push to='/Signup' />;
+      return <Redirect push to='/Signup'/>;
     }
     if (this.state.redirect_login) {
-      return <Redirect push to='/Login' />;
+      return <Redirect push to='/Login'/>;
     }
     return (
-      <div>
-        <h1>STARCHITECT</h1>
-          <Button animated='fade' onClick={this.handleOnClickSignup}>
-            <Button.Content visible>Start Exploring, Enlist!</Button.Content>
-            <Button.Content hidden>Sign Up!</Button.Content>
-          </Button>
-
-          <Button animated='fade' onClick={this.handleOnClickLogin}>
-            <Button.Content visible>Your team is waiting for you!</Button.Content>
-            <Button.Content hidden>Log In!</Button.Content>
-          </Button>
+      <div className='splash'>
+        <div className='splash_container'>
+          <div className='centered_logo'>
+            <div>
+              <img src={logo} className='logo' />
+            </div>
+            <Button animated='fade' onClick={this.handleOnClickSignup}>
+              <Button.Content visible>Start Exploring, Enlist!</Button.Content>
+              <Button.Content hidden>Sign Up!</Button.Content>
+            </Button>
+            <Button animated='fade' onClick={this.handleOnClickLogin}>
+              <Button.Content visible>Your team is waiting for you!</Button.Content>
+              <Button.Content hidden>Log In!</Button.Content>
+            </Button>
+          </div>
+        </div>
+        <div className="fullscreen-bg">
+          <video loop muted autoPlay className="fullscreen-bg__video">
+            <source src="Stars.mp4" type="video/mp4"/>
+          </video>
+        </div>
       </div>
-    );
+    )
   }
 }
