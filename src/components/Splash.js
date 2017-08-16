@@ -32,7 +32,7 @@ export default class Splash extends React.Component {
         <div className='splash_container'>
           <div className='centered_logo'>
             <div>
-              <img src={logo} className='logo' />
+              <img src={logo} alt='Starchitect logo' className='logo' />
             </div>
             <Button animated='fade' onClick={this.handleOnClickSignup}>
               <Button.Content visible>Start Exploring, Enlist!</Button.Content>

@@ -21,7 +21,8 @@ export default class Signup extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     let listItem = JSON.stringify(this.state);
-    
+    console.log(listItem);
+
     fetch("https://starchitect.herokuapp.com/api/v1/users", {
       method: "POST",
       body: listItem,
@@ -36,11 +37,11 @@ export default class Signup extends React.Component {
     }).catch(err => {
       console.log(err, "boo!");
     });
-    this.setState({firstname: '', lastname: '', callsign: '', email: '', password:'', confirm: ''});
+    this.setState({firstname: '', lastname: '', callsign: '', email: '', password:''});
   }
 
   render() {
-    const { firstname, lastname, callsign, email, password, confirm } = this.state
+    const { firstname, lastname, callsign, email, password } = this.state
 
     return (
       <div id='signup_container'>
@@ -50,7 +51,7 @@ export default class Signup extends React.Component {
           <Form.Field id='form-input-control-callsign' name='callsign' value={callsign} control={Input} label='What do they call you?' placeholder='Callsign' onChange={this.handleChange} />
           <Form.Field id='form-input-control-email' name='email' value={email} control={Input} label='How can I reach you if we have a red alert?' placeholder='Email' onChange={this.handleChange} />
           <Form.Field id='form-input-control-password' name='password' value={password} control={Input} label='What is your high command authorization code?' placeholder='Password' onChange={this.handleChange} />
-          <Form.Field id='form-input-control-confirm' name='confirm' value={confirm} control={Input} label='Please confirm your high command authorization code?' placeholder='Password' />
+          <Form.Field id='form-input-control-confirm' name='confirm' control={Input} label='Please confirm your high command authorization code?' placeholder='Please confirm your password' />
           <Message
             success
             header='Form Completed'
