@@ -34,11 +34,11 @@ export default class Splash extends React.Component {
             <div>
               <img src={logo} alt='Starchitect logo' className='logo' />
             </div>
-            <Button animated='fade' onClick={this.handleOnClickSignup}>
+            <Button size='medium' animated='fade' onClick={this.handleOnClickSignup}>
               <Button.Content visible>Start Exploring, Enlist!</Button.Content>
               <Button.Content hidden>Sign Up!</Button.Content>
             </Button>
-            <Button animated='fade' onClick={this.handleOnClickLogin}>
+            <Button size='medium' animated='fade' onClick={this.handleOnClickLogin}>
               <Button.Content visible>Your team is waiting for you!</Button.Content>
               <Button.Content hidden>Log In!</Button.Content>
             </Button>
@@ -48,9 +48,6 @@ export default class Splash extends React.Component {
           <video loop muted autoPlay className="fullscreen-bg__video">
             <source src="Stars.mp4" type="video/mp4"/>
           </video>
-        </div>
-        <div className="hud-container">
-          <img src='blue-hud-image.jpg' className="hud-image" />
         </div>
       </div>
     )

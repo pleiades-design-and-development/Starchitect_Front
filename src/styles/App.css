@@ -1,52 +1,70 @@
-.App{
-  margin: 0;
-  padding: 0;
+.App {
+    margin: 0;
+    padding: 0;
 }
+
 
 /*CSS for Splash page*/
-.splash{
-  margin: 0;
-  padding: 0;
+
+.splash {
+    margin: 0;
+    padding: 0;
 }
-.logo{
-  width: 80vw;
-  margin-top: 27.5vh;
-  opacity: 1.0;
+
+.logo {
+    width: 75vw;
+    margin-top: 25vh;
+    opacity: 1.0;
 }
+
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
+
 .fullscreen-bg__video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  z-index: -100;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-.hud-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  opacity: 0.5;
+
+.centered_logo {
+    text-align: center;
 }
-.centered_logo{
-  text-align: center;
-}
+
 
 /*CSS for Signup page*/
-#signup{
-  margin: 10vw;
-}
-#signup label{
-  color: white;
+
+#signup {
+    margin: 10vw;
 }
 
-/*CSS for Login page*/
-#login{
-  margin: 10vw;
+#signup label {
+    color: white;
 }
-#login label{
-  color: white;
+
+
+/*CSS for Login page*/
+
+#login {
+    margin: 10vw;
+}
+
+#login label {
+    color: white;
 }
