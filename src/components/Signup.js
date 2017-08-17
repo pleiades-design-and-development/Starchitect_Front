@@ -40,7 +40,7 @@ export default class Signup extends React.Component {
       console.log(err, "boo!");
     });
     this.setState({firstname: '', lastname: '', callsign: '', email: '', password: '', password_confirmation: ''});
-    
+
   }
 
   render() {

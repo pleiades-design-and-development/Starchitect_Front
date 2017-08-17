@@ -1,6 +1,7 @@
 .App {
     margin: 0;
     padding: 0;
+    color: white;
 }
 
 
@@ -68,3 +69,61 @@
 #login label {
     color: white;
 }
+
+/*CSS for Profile BaseLayout*/
+#menu{
+  background-color: #6969C0;
+  width: 15vw;
+  height: 100vh;
+  text-align: center;
+}
+.profile-image{
+  border-radius: 50%;
+  width: 12vw;
+}
+#rank{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 3vh;
+  color: white;
+}
+#rank img{
+  width: 4vw;
+}
+#mode{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 3vh;
+}
+#button{
+  font-size: 1.5vh;
+  margin-left: 2px;
+}
+#menu p{
+  color: white;
+}
+#menu .link-color{
+  text-decoration: none;
+  color: #1E184D;
+}
+#menu .link-color:hover{
+  color: #DA7AFF
+}
+#menu .head{
+  background-color: rgba(0,0,0,0.5);
+  width: 100%;
+  padding: 1vh;
+  text-decoration: underline;
+}
+.profile-container{
+  display: flex;
+  flex-flow: row nowrap;
+
+}
+/*CSS for Beacons page*/
