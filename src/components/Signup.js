@@ -40,6 +40,7 @@ export default class Signup extends React.Component {
       console.log(err, "boo!");
     });
     this.setState({firstname: '', lastname: '', callsign: '', email: '', password: '', password_confirmation: ''});
+    
   }
 
   render() {
@@ -52,8 +53,8 @@ export default class Signup extends React.Component {
           <Form.Field id='form-input-control-lastname' name='lastname' value={lastname} control={Input} label='What is your family name, cadet?' placeholder='Last Name' onChange={this.handleChange} />
           <Form.Field id='form-input-control-callsign' name='callsign' value={callsign} control={Input} label='What do they call you?' placeholder='Callsign' onChange={this.handleChange} />
           <Form.Field id='form-input-control-email' name='email' value={email} control={Input} label='How can I reach you if we have a red alert?' placeholder='Email' onChange={this.handleChange} />
-          <Form.Field id='form-input-control-password' name='password' value={password} control={Input} label='What is your high command authorization code?' placeholder='Password' onChange={this.handleChange} />
-          <Form.Field id='form-input-control-password_confirmation' name='password_confirmation' value={password_confirmation} control={Input} label='Please confirm your high command authorization code?' placeholder='Please confirm your password' onChange={this.handleChange} />
+          <Form.Field id='form-input-control-password' name='password' type='password' value={password} control={Input} label='What is your high command authorization code?' placeholder='Password' onChange={this.handleChange} />
+          <Form.Field id='form-input-control-password_confirmation' name='password_confirmation' type='password' value={password_confirmation} control={Input} label='Please confirm your high command authorization code?' placeholder='Please confirm your password' onChange={this.handleChange} />
           <Message
             success
             header='Form Completed'
