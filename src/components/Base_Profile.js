@@ -9,8 +9,10 @@ export default class Base_Profile extends React.Component {
 
   render() {
     return (
-      <div>
-        <p>This is the Base Layout for the Profile... AWESOME!!</p>
+      <div className='profile-container'>
+        <div className='sidebar'>
+          
+        </div>
         <a href={'./Starmap'}>Starmap</a>
         {this.props.children}
       </div>
