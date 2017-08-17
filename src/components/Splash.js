@@ -49,6 +49,9 @@ export default class Splash extends React.Component {
             <source src="Stars.mp4" type="video/mp4"/>
           </video>
         </div>
+        <div className="hud-container">
+          <img src='blue-hud-image.jpg' className="hud-image" />
+        </div>
       </div>
     )
   }

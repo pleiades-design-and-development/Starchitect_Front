@@ -11,6 +11,7 @@ export default class Signup extends React.Component {
       callsign: '',
       email: '',
       password: '',
+      password_confirmation: '',
     }
   }
 
@@ -26,10 +27,11 @@ export default class Signup extends React.Component {
     fetch("https://starchitect.herokuapp.com/api/v1/users", {
       method: "POST",
       body: listItem,
-      // headers: {
-      //   'Accept': 'application/json',
-      //   'Content-Type': 'application/json'
-      // }
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      mode: 'cors'
     }
     ).then(response => {
       console.log(response, "yay");
@@ -37,11 +39,11 @@ export default class Signup extends React.Component {
     }).catch(err => {
       console.log(err, "boo!");
     });
-    this.setState({firstname: '', lastname: '', callsign: '', email: '', password:''});
+    this.setState({firstname: '', lastname: '', callsign: '', email: '', password: '', password_confirmation: ''});
   }
 
   render() {
-    const { firstname, lastname, callsign, email, password } = this.state
+    const { firstname, lastname, callsign, email, password, password_confirmation } = this.state
 
     return (
       <div id='signup_container'>
@@ -51,7 +53,7 @@ export default class Signup extends React.Component {
           <Form.Field id='form-input-control-callsign' name='callsign' value={callsign} control={Input} label='What do they call you?' placeholder='Callsign' onChange={this.handleChange} />
           <Form.Field id='form-input-control-email' name='email' value={email} control={Input} label='How can I reach you if we have a red alert?' placeholder='Email' onChange={this.handleChange} />
           <Form.Field id='form-input-control-password' name='password' value={password} control={Input} label='What is your high command authorization code?' placeholder='Password' onChange={this.handleChange} />
-          <Form.Field id='form-input-control-confirm' name='confirm' control={Input} label='Please confirm your high command authorization code?' placeholder='Please confirm your password' />
+          <Form.Field id='form-input-control-password_confirmation' name='password_confirmation' value={password_confirmation} control={Input} label='Please confirm your high command authorization code?' placeholder='Please confirm your password' onChange={this.handleChange} />
           <Message
             success
             header='Form Completed'
