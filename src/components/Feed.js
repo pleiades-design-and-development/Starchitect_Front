@@ -8,7 +8,7 @@ export default class Feed extends React.Component {
   render() {
     return (
       <div>
-        Look at all the cool things your classmates are doing!  YAY!
+        
       </div>
     );
   }

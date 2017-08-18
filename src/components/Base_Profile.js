@@ -21,14 +21,14 @@ export default class Base_Profile extends React.Component {
             <p>Brandon Stark</p>
             <Menu.Item name='rank' id='rank'>
               <img src='cadetBadge.svg' alt='rank badge'/>
-              <p style={{marginTop: '10px', marginLeft: '5px'}}>CADET</p>
+              <p style={{marginTop: '2px', marginLeft: '5px'}}>CADET</p>
             </Menu.Item>
             <Menu.Item name='progress-bar' id='progress-bar'>
-              <Progress percent='30' indicating />
+              <Progress percent='35' indicating />
             </Menu.Item>
-            <Menu.Item name='mode' id='mode'>
-              <Button id='label'>Explorer</Button>
-              <Button id='label'>Creator</Button>
+            <Menu.Item id='mode'>
+              <Button>Explorer Mode</Button>
+              <Button>Creator Mode</Button>
             </Menu.Item>
             <Menu.Item name='last-location'>
               <p className='head'>Last Known Location:</p>
@@ -48,7 +48,9 @@ export default class Base_Profile extends React.Component {
             <Menu.Item name='crew-lounge'>
               <Link to='' className='link-color'>Crew Lounge</Link>
             </Menu.Item>
-            <Button style={{marginBottom: '1em'}}><a href={'./Starmap'}>Return to Starmap</a></Button>
+            <Menu.Item>
+              <Button><a href={'./Starmap'}>Return to Starmap</a></Button>
+            </Menu.Item>
           </Menu>
         </div>
         <div className="fullscreen-bg">
