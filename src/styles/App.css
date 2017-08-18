@@ -92,7 +92,7 @@
   margin-right: 1em;
 }
 
-.profile-image {
+.profile_image {
     margin: 20px;
     border-radius: 50%;
     width: 12vw;
@@ -113,11 +113,11 @@
     width: 2vw;
 }
 
-#progress-bar {
+#progress_bar {
     margin-bottom: -1.5em;
 }
 
-#progress-bar div {
+#progress_bar div {
     border-radius: 0 !important;
 }
 
@@ -164,7 +164,7 @@
 
 /*CSS for Feed page*/
 
-#feedWindow {
+.feedWindow {
     background-color: rgba(105, 105, 192, 0.5);
     border: 1px solid #6969C0;
     outline: none;
@@ -178,4 +178,37 @@
 
 #feedWindow div {
     margin: auto;
+}
+
+/*CSS for Crew Lounge page*/
+.crewWindow{
+  background-color: rgba(105, 105, 192, 0.5);
+  border: 1px solid #6969C0;
+  outline: none;
+  box-shadow: 0 0 20px #6969C0;
+  margin: 1em 1em 1em 2em;
+  width: 100%;
+  height: 97vh;
+  text-align: center;
+  border-radius: 0 !important;
+}
+
+.crew_bucket{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  height: 97vh;
+}
+
+.member_box{
+  flex: 1 0 18%;
+  margin: 1vw;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.member_image {
+    margin: 20px;
+    border-radius: 50%;
+    width: 6vw;
 }
