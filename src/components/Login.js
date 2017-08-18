@@ -42,7 +42,7 @@ export default class Login extends React.Component {
       <div>
         <Form size='big' key='big' onSubmit={this.handleSubmit} id='login'>
           <Form.Field id='form-input-control-callsign' name='callsign' value={callsign} control={Input} label='What does your squad call you?' placeholder='Callsign' onChange={this.handleChange} />
-          <Form.Field id='form-input-control-password' name='password' value={password} control={Input} label='What is your high command authorization code?' placeholder='Password' onChange={this.handleChange} />
+          <Form.Field id='form-input-control-password' name='password' type='password' value={password} control={Input} label='What is your high command authorization code?' placeholder='Password' onChange={this.handleChange} />
           <Message
             success
             header='Form Completed'

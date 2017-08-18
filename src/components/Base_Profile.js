@@ -36,10 +36,10 @@ export default class Base_Profile extends React.Component {
             </Menu.Item>
             <Menu.Item name='beacons'>
               <p className='head'>Beacons:</p>
-              <p>Jupiter</p>
-              <p>Io</p>
-              <p>Europa</p>
-              <p>Mars</p>
+              <p><Link to={'./Starmap'}>Jupiter</Link></p>
+              <p><Link to={'./Starmap'}>Io</Link></p>
+              <p><Link to={'./Starmap'}>Europa</Link></p>
+              <p><Link to={'./Starmap'}>Mars</Link></p>
               <Link to='/Beacons' className='link-color'>More...</Link>
             </Menu.Item>
             <Menu.Item name='submissions'>
