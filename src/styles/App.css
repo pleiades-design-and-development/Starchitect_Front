@@ -130,11 +130,11 @@
 
 #menu .link-color {
     text-decoration: none;
-    color: #1E184D;
+    color: #DA7AFF;
 }
 
 #menu .link-color:hover {
-    color: #DA7AFF
+    color: #1E184D;
 }
 
 #menu .head {
