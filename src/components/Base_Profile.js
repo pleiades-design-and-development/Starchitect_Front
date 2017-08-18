@@ -35,13 +35,13 @@ export default class Base_Profile extends React.Component {
         <div id='sidebar' style={{width: '20vw', height: '100vh'}}>
 
           <Menu vertical id='menu'>
-            <img src='profile-image.jpeg' alt='profile image' className='profile-image'/>
+            <img src='profile-image.jpeg' alt='profile image' className='profile_image'/>
             <p>Brandon Stark</p>
             <Menu.Item name='rank' id='rank'>
               <img src='cadetBadge.svg' alt='rank badge'/>
               <p style={{marginTop: '2px', marginLeft: '5px'}}>CADET</p>
             </Menu.Item>
-            <Menu.Item name='progress-bar' id='progress-bar'>
+            <Menu.Item name='progress-bar' id='progress_bar'>
               <Progress percent='35' indicating />
             </Menu.Item>
             <Menu.Item id='mode'>
@@ -65,7 +65,7 @@ export default class Base_Profile extends React.Component {
               <Link to='/Submissions' className='link-color'>Submissions</Link>
             </Menu.Item>
             <Menu.Item name='crew-lounge'>
-              <Link to='' className='link-color'>Crew Lounge</Link>
+              <Link to='/CrewLounge' className='link-color'>Crew Lounge</Link>
             </Menu.Item>
             <Menu.Item>
               <Button className='starmap_button'><a href={'./Starmap'}>Return to Starmap</a></Button>
