@@ -33,6 +33,7 @@ export default class Base_Profile extends React.Component {
     return (
       <div className='profile-container'>
         <div id='sidebar' style={{width: '20vw', height: '100vh'}}>
+
           <Menu vertical id='menu'>
             <img src='profile-image.jpeg' alt='profile image' className='profile-image'/>
             <p>Brandon Stark</p>
