@@ -83,6 +83,7 @@
     height: 100%;
     text-align: center;
     border-radius: 0 !important;
+    margin-right: 1em;
 }
 
 .profile-image {
@@ -150,3 +151,22 @@
 
 
 /*CSS for Beacons page*/
+
+
+/*CSS for Feed page*/
+
+#feedWindow {
+    background-color: rgba(105, 105, 192, 0.5);
+    border: 1px solid #6969C0;
+    outline: none;
+    box-shadow: 0 0 20px #6969C0;
+    margin: 1em;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    border-radius: 0 !important;
+}
+
+#feedWindow div {
+    margin: auto;
+}
