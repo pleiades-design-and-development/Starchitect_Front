@@ -32,7 +32,7 @@ export default class Base_Profile extends React.Component {
 
     return (
       <div className='profile-container'>
-        <div id='sidebar' style={{width: '20vw', height: '100vh;'}}>
+        <div id='sidebar' style={{width: '20vw', height: '100vh'}}>
           <Menu vertical id='menu'>
             <img src='profile-image.jpeg' alt='profile image' className='profile-image'/>
             <p>Brandon Stark</p>
@@ -67,7 +67,7 @@ export default class Base_Profile extends React.Component {
               <Link to='' className='link-color'>Crew Lounge</Link>
             </Menu.Item>
             <Menu.Item>
-              <Button><a href={'./Starmap'}>Return to Starmap</a></Button>
+              <Button className='starmap_button'><a href={'./Starmap'}>Return to Starmap</a></Button>
             </Menu.Item>
           </Menu>
         </div>
