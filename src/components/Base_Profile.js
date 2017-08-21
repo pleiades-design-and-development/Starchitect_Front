@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { Input, Label, Menu, Progress, Button } from 'semantic-ui-react'
+import { Input, Label, Menu, Progress, Button, Popup, Icon } from 'semantic-ui-react'
 
 import {Link} from 'react-router-dom';
 
 const mode_text = {
-  'Explorer': 'Go to Creator Mode',
-  'Creator' : 'Go to Explorer Mode',
+  'Explorer': <p>Go to Creator Mode</p>,
+  'Creator' : <p>Go to Explorer Mode</p>,
 };
 
 export default class Base_Profile extends React.Component {
@@ -46,15 +46,34 @@ export default class Base_Profile extends React.Component {
             </Menu.Item>
             <Menu.Item id='mode'>
               <Button active={active} id='toggle' onClick={this.handleModeClick}>
-                {mode_text[mode]}
+                <Popup
+                trigger={mode_text[mode]}
+                content='^ Click to switch between modes'
+                inverted
+                position='right'
+                />
               </Button>
             </Menu.Item>
             <Menu.Item name='last-location'>
-              <p className='head'>Last Known Location:</p>
+              <p className='head'>Last Known Location:<Popup
+              trigger={<Icon circular name='question circle outline' className='location_help' />}
+              content='^ Here is the last location of your ship. Click to fast travel back.'
+              inverted
+              position='right'
+              /></p>
               <p><Link to={'./Starmap'} className='link-color'>Jupiter</Link></p>
             </Menu.Item>
             <Menu.Item name='beacons'>
-              <p className='head'>Beacons:</p>
+              <p className='head'>
+                Beacons:
+                <Popup
+                trigger={<Icon circular name='question circle outline' className='beacons_help' />}
+                content='^ Here are the beacons you saved. Click to fast travel to one.'
+                inverted
+                position='right'
+                />
+              </p>
+
               <p><Link to={'./Starmap'} className='link-color'>Jupiter</Link></p>
               <p><Link to={'./Starmap'} className='link-color'>Io</Link></p>
               <p><Link to={'./Starmap'} className='link-color'>Europa</Link></p>
@@ -68,7 +87,7 @@ export default class Base_Profile extends React.Component {
               <Link to='/CrewLounge' className='link-color'>Crew Lounge</Link>
             </Menu.Item>
             <Menu.Item>
-              <Button className='starmap_button'><a href={'./Starmap'}>Return to Starmap</a></Button>
+              <p className='starmap_link'><a href={'./Starmap'}>Return to Starmap</a></p>
             </Menu.Item>
           </Menu>
         </div>

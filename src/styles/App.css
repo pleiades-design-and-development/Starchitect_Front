@@ -74,89 +74,103 @@
 /*CSS for Profile BaseLayout*/
 
 #menu {
-    background-color: rgba(105, 105, 192, 0.75);
-    border: 1px solid #6969C0;
-    outline: none;
-    box-shadow: 0 0 20px #6969C0;
-    margin: 1em;
-    width: 100%;
-    height: 97vh;
-    text-align: center;
-    border-radius: 0 !important;
-    font-size: 1.6vh;
-    font-weight: bold;
+  background-color: rgba(105, 105, 192, 0.75);
+  border: 1px solid #6969C0;
+  outline: none;
+  box-shadow: 0 0 20px #6969C0;
+  margin: 1em;
+  width: 100%;
+  height: 97vh;
+  text-align: center;
+  border-radius: 0 !important;
+  font-size: 1.6vh;
+  font-weight: bold;
 }
 
 #menu .item{
   padding: 1vh;
-  margin-right: 1em;
 }
 
 .profile_image {
-    margin: 20px;
-    border-radius: 50%;
-    width: 12vw;
+  margin: 20px;
+  border-radius: 50%;
+  width: 12vw;
 }
 
 #rank {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    font-size: 2vh;
-    color: white;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 2vh;
+  color: white;
 }
 
 #rank img {
-    margin-left: -1em;
-    width: 2vw;
+  margin-left: -1em;
+  width: 2vw;
 }
 
 #progress_bar {
-    margin-bottom: -1.5em;
+  margin-bottom: -1.5em;
 }
 
 #progress_bar div {
-    border-radius: 0 !important;
+  border-radius: 0 !important;
 }
 
 #mode button {
-    color: white;
-    background-color: rgba(0, 0, 0, 0.3);
-    box-shadow: 0 0 20px #6969C0;
-    text-align: center;
-    width: 100%;
-    margin: 1px;
-    border-radius: 0 !important;
-    font-size: 1.6vh;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 20px #6969C0;
+  text-align: center;
+  width: 100%;
+  margin: 1px;
+  border-radius: 0 !important;
+  font-size: 1.6vh;
 }
 
 #menu p {
-    color: white;
+  color: white;
 }
 
 #menu .link-color {
-    text-decoration: none;
-    color: #DA7AFF;
+  text-decoration: none;
+  color: #DA7AFF;
 }
 
 #menu .link-color:hover {
-    color: #1E184D;
+  color: #1E184D;
 }
 
 #menu .head {
-    background-color: rgba(0, 0, 0, 0.3);
-    width: 100%;
-    padding: 1vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 20px #6969C0;
+  width: 100%;
+  padding: 1vh;
+  font-weight: bold;
 }
 
 .profile-container {
-    display: flex;
-    flex-flow: row nowrap;
+  display: flex;
+  flex-flow: row nowrap;
 }
-#menu .starmap_button{
-  margin-top: 3vh;
+#menu .starmap_link{
+  margin-top: 1vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 20px #6969C0;
+  width: 100%;
+  padding: 1vh;
+  font-weight: bold;
+}
+#menu .beacons_help{
+  position: relative;
+  left: 4vw;
+}
+#menu .location_help{
+  position: relative;
+  left: 1.25vw;
 }
 
 /*CSS for Beacons page*/
@@ -165,19 +179,19 @@
 /*CSS for Feed page*/
 
 .feedWindow {
-    background-color: rgba(105, 105, 192, 0.5);
-    border: 1px solid #6969C0;
-    outline: none;
-    box-shadow: 0 0 20px #6969C0;
-    margin: 1em 1em 1em 2em;
-    width: 100%;
-    height: 97vh;
-    text-align: center;
-    border-radius: 0 !important;
+  background-color: rgba(105, 105, 192, 0.5);
+  border: 1px solid #6969C0;
+  outline: none;
+  box-shadow: 0 0 20px #6969C0;
+  margin: 1em 1em 1em 2em;
+  width: 100%;
+  height: 97vh;
+  text-align: center;
+  border-radius: 0 !important;
 }
 
 #feedWindow div {
-    margin: auto;
+  margin: auto;
 }
 
 /*CSS for Crew Lounge page*/
@@ -208,7 +222,7 @@
 }
 
 .member_image {
-    margin: 20px;
-    border-radius: 50%;
-    width: 6vw;
+  margin: 20px;
+  border-radius: 50%;
+  width: 6vw;
 }
