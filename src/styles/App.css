@@ -98,7 +98,7 @@
     box-shadow: 0 0 20px #6969C0;
     margin: 1em;
     width: 100%;
-    height: 100%;
+    height: 97vh;
     text-align: center;
     border-radius: 0 !important;
     margin-right: 1em;
@@ -173,6 +173,7 @@
   display: flex;
   flex-flow: row nowrap;
 }
+
 #menu .starmap_link{
   margin-top: 1vh;
   background-color: rgba(0, 0, 0, 0.3);
@@ -181,10 +182,21 @@
   padding: 1vh;
   font-weight: bold;
 }
+
+#menu a{
+text-decoration: none;
+color: #DA7AFF;
+}
+
+#menu a:hover{
+  color: #1E184D;
+}
+
 #menu .beacons_help{
   position: relative;
   left: 4vw;
 }
+
 #menu .location_help{
   position: relative;
   left: 1.25vw;
