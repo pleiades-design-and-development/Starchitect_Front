@@ -31,14 +31,14 @@ export default class Splash extends React.Component {
       <div className='splash'>
         <div className='splash_container'>
           <div className='centered_logo'>
-            <div>
               <img src={logo} alt='Starchitect logo' className='logo' />
-            </div>
-            <Button size='medium' animated='fade' onClick={this.handleOnClickSignup}>
+          </div>
+          <div className='centered_buttons' style={{textAlign: 'center'}}>
+            <Button style={{marginBottom: '1em'}} size='medium' animated='fade' onClick={this.handleOnClickSignup}>
               <Button.Content visible>Start Exploring, Enlist!</Button.Content>
               <Button.Content hidden>Sign Up!</Button.Content>
             </Button>
-            <Button size='medium' animated='fade' onClick={this.handleOnClickLogin}>
+            <Button style={{marginBottom: '1em'}} size='medium' animated='fade' onClick={this.handleOnClickLogin}>
               <Button.Content visible>Your team is waiting for you!</Button.Content>
               <Button.Content hidden>Log In!</Button.Content>
             </Button>

@@ -10,21 +10,43 @@
 .splash {
     margin: 0;
     padding: 0;
+    height: 100vh;
+}
+
+.splash_container {
+    height: 100%;
+}
+
+.centered_logo {
+    display: block;
 }
 
 .logo {
-    width: 75vw;
-    margin-top: 25vh;
-    opacity: 1.0;
+    margin: 0 auto;
+    height: 30vh;
+    width: 95vw;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -47.5vw;
+    margin-top: -20vh;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.centered_logo div {
+    height: 5vh;
+    margin-top: 20vh;
+    text-align: center;
+}
+
+.centered_buttons {
+    height: 5vh;
+    width: 95vw;
+    position: absolute;
+    margin: 0 auto;
+    left: 51%;
+    top: 78%;
+    margin-left: -47.5vw;
+    margin-top: -20vh
 }
 
 .fullscreen-bg__video {
@@ -42,10 +64,6 @@
     transform: translateX(-50%) translateY(-50%);
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-.centered_logo {
-    text-align: center;
 }
 
 
@@ -74,17 +92,16 @@
 /*CSS for Profile BaseLayout*/
 
 #menu {
-  background-color: rgba(105, 105, 192, 0.75);
-  border: 1px solid #6969C0;
-  outline: none;
-  box-shadow: 0 0 20px #6969C0;
-  margin: 1em;
-  width: 100%;
-  height: 97vh;
-  text-align: center;
-  border-radius: 0 !important;
-  font-size: 1.6vh;
-  font-weight: bold;
+    background-color: rgba(105, 105, 192, 0.75);
+    border: 1px solid #6969C0;
+    outline: none;
+    box-shadow: 0 0 20px #6969C0;
+    margin: 1em;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border-radius: 0 !important;
+    margin-right: 1em;
 }
 
 #menu .item{
@@ -191,7 +208,7 @@
 }
 
 #feedWindow div {
-  margin: auto;
+    margin: auto;
 }
 
 /*CSS for Crew Lounge page*/
