@@ -2,6 +2,8 @@ import React from 'react';
 
 import {Form, Input, Button, Message} from 'semantic-ui-react';
 
+import {Redirect} from 'react-router-dom';
+
 export default class Signup extends React.Component {
   constructor(props){
     super(props);
@@ -12,6 +14,8 @@ export default class Signup extends React.Component {
       email: '',
       password: '',
       password_confirmation: '',
+      api_token: '',
+      redirect_starmap: false,
     }
   }
 
@@ -21,7 +25,8 @@ export default class Signup extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    let listItem = JSON.stringify(this.state);
+    const {firstname, lastname, callsign, email, password, password_confirmation} = this.state;
+    let listItem = JSON.stringify({ firstname, lastname, callsign, email, password, password_confirmation });
     console.log(listItem);
 
     fetch("https://starchitect.herokuapp.com/api/v1/users", {
@@ -35,17 +40,19 @@ export default class Signup extends React.Component {
     }
     ).then(response => {
       console.log(response, "yay");
-
+      // this.state.api_token = response.api_token
+      // console.log(this.state.api_token);
     }).catch(err => {
       console.log(err, "boo!");
     });
-    this.setState({firstname: '', lastname: '', callsign: '', email: '', password: '', password_confirmation: ''});
-
+    this.setState({firstname: '', lastname: '', callsign: '', email: '', password: '', password_confirmation: ''/*, redirect_signup: true*/});
   }
 
   render() {
-    const { firstname, lastname, callsign, email, password, password_confirmation } = this.state
-
+    const { firstname, lastname, callsign, email, password, password_confirmation, redirect_starmap } = this.state
+    if (redirect_starmap) {
+      return <Redirect push to='/Starmap'/>;
+    }
     return (
       <div id='signup_container'>
         <Form size='big' key='big' onSubmit={this.handleSubmit} id='signup'>
