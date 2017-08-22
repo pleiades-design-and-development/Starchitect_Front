@@ -50,15 +50,20 @@ export default class Base_Profile extends React.Component {
                 trigger={mode_text[mode]}
                 content='^ Click to switch between modes'
                 inverted
+                position='right'
                 />
               </Button>
             </Menu.Item>
             <Menu.Item name='last-location'>
-              <p className='head'>Last Known Location:<Popup
-              trigger={<Icon circular name='question circle outline' className='location_help' />}
-              content='^ Here is the last location of your ship. Click to fast travel back.'
-              inverted
-              /></p>
+              <p className='head'>
+                Last Known Location:
+                <Popup
+                trigger={<Icon circular name='question circle outline' className='location_help' />}
+                content='^ Here is the last location of your ship. Click to fast travel back.'
+                inverted
+                position='right'
+                />
+              </p>
               <p><Link to={'./Starmap'} className='link-color'>Jupiter</Link></p>
             </Menu.Item>
             <Menu.Item name='beacons'>
@@ -68,6 +73,7 @@ export default class Base_Profile extends React.Component {
                 trigger={<Icon circular name='question circle outline' className='beacons_help' />}
                 content='^ Here are the beacons you saved. Click to fast travel to one.'
                 inverted
+                position='right'
                 />
               </p>
 

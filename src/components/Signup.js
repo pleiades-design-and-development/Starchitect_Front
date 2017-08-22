@@ -40,8 +40,8 @@ export default class Signup extends React.Component {
     }
     ).then(response => {
       console.log(response, "yay");
-      // this.state.api_token = response.api_token
-      // console.log(this.state.api_token);
+      this.setState({api_token: response.api_token};
+      console.log(this.state.api_token);
     }).catch(err => {
       console.log(err, "boo!");
     });
