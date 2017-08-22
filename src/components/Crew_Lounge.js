@@ -7,7 +7,7 @@ export default class Crew_Lounge extends React.Component {
     super(props);
     this.state = {
       crew: [],
-      api_token: 'Token token=RP44X2yF1VPDJHAdaWFcQ6dM',
+      api_token: sessionStorage.getItem('api_token'),
     }
   }
 
@@ -21,6 +21,7 @@ export default class Crew_Lounge extends React.Component {
       return data.json();
     }).then((response) => {
       console.log(response, "yay");
+      console.log(this.state.api_token)
       this.setState({crew: response.data});
     }).catch(err => {
       console.log(err, "boo!");

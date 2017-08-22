@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Starmap from './App_Starmap'
+
 import {Form, Input, Button, Message} from 'semantic-ui-react';
 
 import {Redirect} from 'react-router-dom';
@@ -14,7 +16,6 @@ export default class Signup extends React.Component {
       email: '',
       password: '',
       password_confirmation: '',
-      api_token: '',
       redirect_starmap: false,
     }
   }
@@ -37,15 +38,17 @@ export default class Signup extends React.Component {
         'Content-Type': 'application/json'
       },
       mode: 'cors'
-    }
-    ).then(response => {
+    }).then(data => {
+      return data.json();
+    }).then(response => {
       console.log(response, "yay");
-      this.setState({api_token: response.api_token};
-      console.log(this.state.api_token);
+      sessionStorage.setItem('api_token', 'Token token=' + response.data.attributes['api-token']);
+      let foo = sessionStorage.getItem('api_token');
+      console.log(foo);
     }).catch(err => {
       console.log(err, "boo!");
     });
-    this.setState({firstname: '', lastname: '', callsign: '', email: '', password: '', password_confirmation: ''/*, redirect_signup: true*/});
+    this.setState({firstname: '', lastname: '', callsign: '', email: '', password: '', password_confirmation: '', redirect_starmap: true});
   }
 
   render() {
