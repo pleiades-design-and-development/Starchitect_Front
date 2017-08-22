@@ -15,7 +15,27 @@ export default class Base_Profile extends React.Component {
     this.state = {
       mode: 'Explorer',
       active: false,
+      api_token: sessionStorage.getItem('api_token'),
+      userId: sessionStorage.getItem('userId'),
+      user: {},
     }
+  }
+
+  componentDidMount() {
+    fetch(`https://starchitect.herokuapp.com/api/v1/users/${this.state.userId}`, {
+      method: 'GET',
+      headers: {
+        'Authorization': this.state.api_token,
+      },
+    }).then(function(data) {
+      return data.json();
+    }).then((response) => {
+      console.log(response, "yay");
+      this.setState({user: response.data});
+      console.log(this.state.user);
+    }).catch(err => {
+      console.log(err, "boo!");
+    });
   }
 
   handleModeClick = () => {
@@ -28,8 +48,8 @@ export default class Base_Profile extends React.Component {
   }
 
   render() {
-    const {mode, active} = this.state;
-
+    const {mode, active, user} = this.state;
+    console.log(user);
     return (
       <div className='profile-container'>
         <div id='sidebar' style={{width: '20vw', height: '100vh'}}>

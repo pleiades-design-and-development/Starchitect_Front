@@ -21,7 +21,6 @@ export default class Crew_Lounge extends React.Component {
       return data.json();
     }).then((response) => {
       console.log(response, "yay");
-      console.log(this.state.api_token)
       this.setState({crew: response.data});
     }).catch(err => {
       console.log(err, "boo!");
@@ -30,8 +29,6 @@ export default class Crew_Lounge extends React.Component {
 
   render() {
     const {crew} = this.state;
-    console.log(crew);
-
     return (
       <div className='crewWindow'>
         <h2>Crew Lounge</h2>
