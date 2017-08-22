@@ -43,12 +43,12 @@ export default class Signup extends React.Component {
     }).then(response => {
       console.log(response, "yay");
       sessionStorage.setItem('api_token', 'Token token=' + response.data.attributes['api-token']);
-      let foo = sessionStorage.getItem('api_token');
-      console.log(foo);
+      sessionStorage.setItem('userId', response.data.id);
+      this.setState({ redirect_starmap: true });
     }).catch(err => {
       console.log(err, "boo!");
     });
-    this.setState({firstname: '', lastname: '', callsign: '', email: '', password: '', password_confirmation: '', redirect_starmap: true});
+    this.setState({ firstname: '', lastname: '', callsign: '', email: '', password: '', password_confirmation: '' });
   }
 
   render() {
