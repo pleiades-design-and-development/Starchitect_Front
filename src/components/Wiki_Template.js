@@ -7,8 +7,10 @@ export default class Wiki_Template extends React.Component {
 
   render() {
     return (
-      <div>
-        This will be the super awesome... wait, wait, I already did that... WIKI PAGES!!!
+      <div className='wiki_template'>
+        <h2>Astronomical Object</h2>
+        <img src='' alt='Astronomical object' className='' />
+        
       </div>
     );
   }

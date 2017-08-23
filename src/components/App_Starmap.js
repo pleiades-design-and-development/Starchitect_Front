@@ -7,10 +7,14 @@ import Wiki_Template from './Wiki_Template';
 import App_Profile from './App_Profile';
 
 export default class App_Starmap extends React.Component {
+  constructor(props){
+    super(props);
+  }
+
   render() {
     return (
       <div>
-        <BrowserRouter>
+        <BrowserRouter basename='/Starchitect_Front'>
           <Base_Starmap>
             <Switch>
               <Route to='/Starmap' component={Starmap}></Route>
