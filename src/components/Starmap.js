@@ -7,8 +7,12 @@ export default class Starmap extends React.Component {
 
   render() {
     return (
-      <div>
-        This will be the super awesome 3D never-before-seen... obviously... STARMAP!
+      <div style={{height: '80vh'}}>
+        <img id='sun' style={{width: '20em'}} src="Sun.png" alt="sun"/>
+        <img className='planets earth' src="p-earth.png" alt="earth"/>
+        <img className='planets jupiter' src="p-jupiter.png" alt="jupiter"/>
+        <img className='planets mars' src="p-mars.png" alt="mars"/>
+        <img id='glow' src="bg-glow.png" alt="glow"/>
       </div>
     );
   }

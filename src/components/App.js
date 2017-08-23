@@ -14,7 +14,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <BrowserRouter>
+        <BrowserRouter basename='/Starchitect_Front'>
           <Switch>
             <Route exact path='/' component={Splash}></Route>
             <Route path='/Starmap' component={App_Starmap}></Route>
