@@ -16,7 +16,7 @@ export default class App_Profile extends React.Component {
   render() {
     return (
       <div>
-        <BrowserRouter>
+        <BrowserRouter basename='/Starchitect_Front'>
           <Base_Profile>
             <Switch>
               <Route path='/Profile' component={FeedPage}></Route>
