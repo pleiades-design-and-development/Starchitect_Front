@@ -30,9 +30,8 @@ export default class Base_Profile extends React.Component {
     }).then(function(data) {
       return data.json();
     }).then((response) => {
-      console.log(response, "yay");
+      // console.log(response, "yay");
       this.setState({user: response.data});
-      console.log(this.state.user);
     }).catch(err => {
       console.log(err, "boo!");
     });
@@ -56,13 +55,14 @@ export default class Base_Profile extends React.Component {
 
           <Menu vertical id='menu'>
             <img src='profile-image.jpeg' alt='profile image' className='profile_image'/>
-            <p>Brandon Stark</p>
+            <p className='callsign'>{Object.keys(user).length ? user.attributes.callsign : 'Callsign'}</p>
             <Menu.Item name='rank' id='rank'>
-              <img src='cadetBadge.svg' alt='rank badge'/>
-              <p style={{marginTop: '2px', marginLeft: '5px'}}>CADET</p>
+              <img src='cadetBadge.svg' alt='rank badge' />
+              <p style={{textTransform: 'uppercase', marginTop: '2px', marginLeft: '5px'}} className='rank'>{Object.keys(user).length ? user.attributes.rank : 'Rank'}</p>
             </Menu.Item>
             <Menu.Item name='progress-bar' id='progress_bar'>
-              <Progress percent='35' indicating />
+              <p>Experience Points</p>
+              <Progress size='small' percent={Object.keys(user).length ? user.relationships.points.data : 0} indicating />
             </Menu.Item>
             <Menu.Item id='mode'>
               <Button active={active} id='toggle' onClick={this.handleModeClick}>
