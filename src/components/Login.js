@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {Redirect} from 'react-router-dom';
+
 import {Form, Input, Button, Message} from 'semantic-ui-react';
 
 export default class Login extends React.Component {
@@ -7,7 +9,8 @@ export default class Login extends React.Component {
     super(props);
     this.state = {
       callsign: '',
-      password: ''
+      password: '',
+      redirect_profile: false,
     };
   }
 
@@ -15,29 +18,35 @@ export default class Login extends React.Component {
     this.setState({ [name]: value });
   }
 
-  // handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   let listItem = JSON.stringify(this.state);
-  //   fetch("https://starchitect.herokuapp.com/api/v1/users", {
-  //     method: "POST",
-  //     body: listItem,
-  //     // headers: {
-  //     //   'Accept': 'application/json',
-  //     //   'Content-Type': 'application/json'
-  //     // }
-  //   }
-  //   ).then(response => {
-  //     console.log(response, "yay");
-  //
-  //   }).catch(err => {
-  //     console.log(err, "boo!");
-  //   });
-  //   this.setState({ callsign: '', password:'' });
-  // }
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { callsign, password } = this.state;
+    let listItem = JSON.stringify({ callsign, password });
+    fetch("https://starchitect.herokuapp.com/api/v1/login", {
+      method: "POST",
+      body: listItem,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then(data => {
+      return data.json();
+    }).then(response => {
+      console.log(response, "yay");
+      sessionStorage.setItem('api_token', 'Token token=' + response.data.attributes['api-token']);
+      sessionStorage.setItem('userId', response.data.id);
+      this.setState({redirect_profile: true})
+    }).catch(err => {
+      console.log(err, "boo!");
+    });
+    this.setState({ callsign: '', password:'' });
+  }
 
   render() {
-    const { callsign, password } = this.state
-
+    const { callsign, password, redirect_profile } = this.state
+    if (redirect_profile) {
+      return <Redirect push to='/Profile'/>;
+    }
     return (
       <div>
         <Form size='big' key='big' onSubmit={this.handleSubmit} id='login'>
