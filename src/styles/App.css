@@ -104,11 +104,25 @@
     margin-right: 1em;
 }
 
-#menu .item{
-  padding: 1vh;
+#menu .item {
+    padding: 1vh;
 }
 
 .profile_image {
+
+    margin: 20px;
+    border-radius: 50%;
+    width: 12vw;
+}
+
+#rank {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 2vh;
+    color: white;
   margin: 7% 5% 0 5%;
   border-radius: 50%;
   width: 65%;
@@ -130,8 +144,8 @@
 }
 
 #rank img {
-  margin-left: -1em;
-  width: 2vw;
+    margin-left: -1em;
+    width: 2vw;
 }
 
 #progress_bar {
@@ -139,7 +153,7 @@
 }
 
 #progress_bar div {
-  border-radius: 0 !important;
+    border-radius: 0 !important;
 }
 
 #mode button {
@@ -154,16 +168,16 @@
 }
 
 #menu p {
-  color: white;
+    color: white;
 }
 
 #menu .link-color {
-  text-decoration: none;
-  color: #DA7AFF;
+    text-decoration: none;
+    color: #DA7AFF;
 }
 
 #menu .link-color:hover {
-  color: #1E184D;
+    color: #1E184D;
 }
 
 #menu .head {
@@ -176,8 +190,8 @@
 }
 
 .profile-container {
-  display: flex;
-  flex-flow: row nowrap;
+    display: flex;
+    flex-flow: row nowrap;
 }
 
 #menu .starmap_link{
@@ -189,24 +203,25 @@
   font-weight: bold;
 }
 
-#menu a{
-text-decoration: none;
-color: #DA7AFF;
+#menu a {
+    text-decoration: none;
+    color: #DA7AFF;
 }
 
-#menu a:hover{
-  color: #1E184D;
+#menu a:hover {
+    color: #1E184D;
 }
 
-#menu .beacons_help{
-  position: relative;
-  left: 4vw;
+#menu .beacons_help {
+    position: relative;
+    left: 4vw;
 }
 
-#menu .location_help{
-  position: relative;
-  left: 1.25vw;
+#menu .location_help {
+    position: relative;
+    left: 1.25vw;
 }
+
 
 /*CSS for Beacons page*/
 
@@ -214,33 +229,37 @@ color: #DA7AFF;
 /*CSS for Feed page*/
 
 .feedWindow {
-  background-color: rgba(105, 105, 192, 0.5);
-  border: 1px solid #6969C0;
-  outline: none;
-  box-shadow: 0 0 20px #6969C0;
-  margin: 1em 1em 1em 2em;
-  width: 100%;
-  height: 97vh;
-  text-align: center;
-  border-radius: 0 !important;
+    background-color: rgba(105, 105, 192, 0.5);
+    border: 1px solid #6969C0;
+    outline: none;
+    box-shadow: 0 0 20px #6969C0;
+    margin: 1em 1em 1em 2em;
+    width: 100%;
+    height: 97vh;
+    text-align: center;
+    border-radius: 0 !important;
 }
 
 #feedWindow div {
     margin: auto;
 }
 
+
 /*CSS for Crew Lounge page*/
-.crewWindow{
-  background-color: rgba(105, 105, 192, 0.5);
-  border: 1px solid #6969C0;
-  outline: none;
-  box-shadow: 0 0 20px #6969C0;
-  margin: 1em 1em 1em 2em;
-  width: 100%;
-  height: 97vh;
-  text-align: center;
-  border-radius: 0 !important;
+
+.crewWindow {
+    background-color: rgba(105, 105, 192, 0.5);
+    border: 1px solid #6969C0;
+    outline: none;
+    box-shadow: 0 0 20px #6969C0;
+    margin: 1em 1em 1em 2em;
+    width: 100%;
+    height: 97vh;
+    text-align: center;
+    border-radius: 0 !important;
 }
+
+
 
 #crew_bucket{
   display: flex;
@@ -259,7 +278,42 @@ color: #DA7AFF;
 }
 
 .member_image {
-  margin: 20px;
-  border-radius: 50%;
-  width: 6vw;
+    margin: 20px;
+    border-radius: 50%;
+    width: 6vw;
+}
+
+
+/*Starmap CSS*/
+
+#glow {
+    margin-top: -3%;
+    opacity: 0.75;
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: 100%;
+    z-index: -50;
+}
+
+#sun {
+    position: absolute;
+    margin: 0 auto;
+    left: -15em;
+    top: 30%;
+    border: 0;
+    border-radius: 50%;
+    background-color: #FB7209;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 0 90px rgba(255, 160, 60, 0.4);
+}
+
+.planets {
+    position: absolute;
+    border: .5px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
