@@ -15,11 +15,6 @@ export default class Base_Starmap extends React.Component {
         <p>Base Layout for the Starmap</p>
         <a href={'./Profile'}>Profile</a>
         {this.props.children}
-        <div className="fullscreen-bg">
-          <video loop muted autoPlay className="fullscreen-bg__video">
-            <source src="Stars.mp4" type="video/mp4"/>
-          </video>
-        </div>
       </div>
     );
   }

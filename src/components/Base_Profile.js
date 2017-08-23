@@ -117,13 +117,6 @@ export default class Base_Profile extends React.Component {
             </Menu.Item>
           </Menu>
         </div>
-        <div className="stars"></div>
-        <div className="twinkling"></div>
-        {/* <div className="fullscreen-bg">
-          <video loop muted autoPlay className="fullscreen-bg__video">
-            <source src="Stars.mp4" type="video/mp4"/>
-          </video>
-        </div> */}
         {this.props.children}
       </div>
     );

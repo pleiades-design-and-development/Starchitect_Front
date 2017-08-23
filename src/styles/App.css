@@ -49,24 +49,6 @@
     margin-top: -20vh
 }
 
-.fullscreen-bg__video {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    -ms-transform: translateX(-50%) translateY(-50%);
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-
 /*CSS for Signup page*/
 
 #signup {
