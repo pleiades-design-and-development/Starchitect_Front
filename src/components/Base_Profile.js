@@ -103,6 +103,9 @@ export default class Base_Profile extends React.Component {
               <p><Link to={'./Starmap'} className='link-color'>Mars</Link></p>
               <Link to='/Beacons' className='link-color'>More...</Link>
             </Menu.Item>
+            <Menu.Item name='feed_link'>
+              <Link to='/Profile' className='link-color'>News Feed</Link>
+            </Menu.Item>
             <Menu.Item name='submissions'>
               <Link to='/Submissions' className='link-color'>Submissions</Link>
             </Menu.Item>
@@ -114,11 +117,13 @@ export default class Base_Profile extends React.Component {
             </Menu.Item>
           </Menu>
         </div>
-        <div className="fullscreen-bg">
+        <div className="stars"></div>
+        <div className="twinkling"></div>
+        {/* <div className="fullscreen-bg">
           <video loop muted autoPlay className="fullscreen-bg__video">
             <source src="Stars.mp4" type="video/mp4"/>
           </video>
-        </div>
+        </div> */}
         {this.props.children}
       </div>
     );
