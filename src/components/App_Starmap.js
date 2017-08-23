@@ -14,7 +14,7 @@ export default class App_Starmap extends React.Component {
   render() {
     return (
       <div>
-        <BrowserRouter>
+        <BrowserRouter basename='/Starchitect_Front'>
           <Base_Starmap>
             <Switch>
               <Route to='/Starmap' component={Starmap}></Route>
