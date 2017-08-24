@@ -51,8 +51,7 @@ export default class Base_Profile extends React.Component {
     console.log(user);
     return (
       <div className='profile-container'>
-        <div id='sidebar' style={{width: '20vw', height: '100vh'}}>
-
+        <div id='sidebar'>
           <Menu vertical id='menu'>
             <img src='profile-image.jpeg' alt='profile image' className='profile_image'/>
             <p className='callsign'>{Object.keys(user).length ? user.attributes.callsign : 'Callsign'}</p>
