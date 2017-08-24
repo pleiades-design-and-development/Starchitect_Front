@@ -6,6 +6,8 @@ import Starmap from './Starmap';
 import Wiki_Template from './Wiki_Template';
 import App_Profile from './App_Profile';
 
+import basename from '../config';
+
 export default class App_Starmap extends React.Component {
   constructor(props){
     super(props);
@@ -14,7 +16,7 @@ export default class App_Starmap extends React.Component {
   render() {
     return (
       <div>
-        <BrowserRouter basename='/Starchitect_Front'>
+        <BrowserRouter basename={basename}>
           <Base_Starmap>
             <Switch>
               <Route to='/Starmap' component={Starmap}></Route>

@@ -8,6 +8,8 @@ import Beacons from './Beacons';
 import Submissions from './Submissions';
 import Crew_Lounge from './Crew_Lounge';
 
+import basename from '../config';
+
 export default class App_Profile extends React.Component {
   constructor(props) {
     super(props);
@@ -16,7 +18,7 @@ export default class App_Profile extends React.Component {
   render() {
     return (
       <div>
-        <BrowserRouter basename='/Starchitect_Front'>
+        <BrowserRouter basename={basename}>
           <Base_Profile>
             <Switch>
               <Route path='/Profile' component={FeedPage}></Route>
