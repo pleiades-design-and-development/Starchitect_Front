@@ -16,6 +16,7 @@ export default class App extends React.Component {
       <div className="App">
         <div className="stars"></div>
         <div className="twinkling"></div>
+        <div className="clouds"></div>
         <BrowserRouter basename='/Starchitect_Front'>
           <Switch>
             <Route exact path='/' component={Splash}></Route>
