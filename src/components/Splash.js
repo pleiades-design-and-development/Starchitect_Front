@@ -44,11 +44,6 @@ export default class Splash extends React.Component {
             </Button>
           </div>
         </div>
-        <div className="fullscreen-bg">
-          <video loop muted autoPlay className="fullscreen-bg__video">
-            <source src="Stars.mp4" type="video/mp4"/>
-          </video>
-        </div>
       </div>
     )
   }

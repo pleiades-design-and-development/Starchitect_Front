@@ -5,7 +5,7 @@
 }
 
 
-/*CSS for twinkling stars background*/
+/*Background*/
 
 @keyframes move-twink-back {
     from {
@@ -79,16 +79,6 @@
     }
 }
 
-.clouds {
-    background: transparent url(http://www.script-tutorials.com/demos/360/images/clouds3.png) repeat top center;
-    z-index: 3;
-    -moz-animation: move-clouds-back 200s linear infinite;
-    -ms-animation: move-clouds-back 200s linear infinite;
-    -o-animation: move-clouds-back 200s linear infinite;
-    -webkit-animation: move-clouds-back 200s linear infinite;
-    animation: move-clouds-back 200s linear infinite;
-}
-
 .stars,
 .twinkling,
 .clouds {
@@ -99,21 +89,33 @@
     bottom: 0;
     width: 100%;
     height: 100%;
-    z-index: -100;
     display: block;
+    z-index: -100;
 }
 
 .stars {
     background: #000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+    z-index: 0;
 }
 
 .twinkling {
     background: transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+    z-index: 1;
     -moz-animation: move-twink-back 200s linear infinite;
     -ms-animation: move-twink-back 200s linear infinite;
     -o-animation: move-twink-back 200s linear infinite;
     -webkit-animation: move-twink-back 200s linear infinite;
     animation: move-twink-back 200s linear infinite;
+}
+
+.clouds {
+    background: transparent url(http://www.script-tutorials.com/demos/360/images/clouds3.png) repeat top center;
+    z-index: 3;
+    -moz-animation: move-clouds-back 200s linear infinite;
+    -ms-animation: move-clouds-back 200s linear infinite;
+    -o-animation: move-clouds-back 200s linear infinite;
+    -webkit-animation: move-clouds-back 200s linear infinite;
+    animation: move-clouds-back 200s linear infinite;
 }
 
 
@@ -160,6 +162,24 @@
     margin-left: -47.5vw;
     margin-top: -20vh
 }
+
+
+/* .fullscreen-bg__video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
 
 
 /*CSS for Signup page*/
@@ -360,6 +380,107 @@
     margin: 20px;
     border-radius: 50%;
     width: 6vw;
+}
+
+
+/*CSS for twinkling stars background*/
+
+@keyframes move-twink-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+@-webkit-keyframes move-twink-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+@-moz-keyframes move-twink-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+@-ms-keyframes move-twink-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+@keyframes move-clouds-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 10000px 0;
+    }
+}
+
+@-webkit-keyframes move-clouds-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 10000px 0;
+    }
+}
+
+@-moz-keyframes move-clouds-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 10000px 0;
+    }
+}
+
+@-ms-keyframes move-clouds-back {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: 10000px 0;
+    }
+}
+
+.stars,
+.twinkling {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -100;
+    display: block;
+}
+
+.stars {
+    background: #000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+}
+
+.twinkling {
+    background: transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+    -moz-animation: move-twink-back 200s linear infinite;
+    -ms-animation: move-twink-back 200s linear infinite;
+    -o-animation: move-twink-back 200s linear infinite;
+    -webkit-animation: move-twink-back 200s linear infinite;
+    animation: move-twink-back 200s linear infinite;
 }
 
 

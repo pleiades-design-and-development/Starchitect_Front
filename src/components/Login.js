@@ -64,11 +64,6 @@ export default class Login extends React.Component {
           />
           <Button type='submit'>Submit</Button>
         </Form>
-        <div className="fullscreen-bg">
-          <video loop muted autoPlay className="fullscreen-bg__video">
-            <source src="Stars.mp4" type="video/mp4"/>
-          </video>
-        </div>
       </div>
     );
   }
