@@ -4,6 +4,10 @@
     color: black;
 }
 
+#root {
+    height: 100vh;
+}
+
 
 /*CSS for twinkling stars background*/
 
@@ -164,8 +168,10 @@
 
 /*CSS for Signup page*/
 
-#signup {
-    margin: 10vw;
+#signup_container {
+    height: 80vh;
+    width: 80vw;
+    margin: 3em auto;
 }
 
 #signup label {
