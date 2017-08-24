@@ -10,6 +10,8 @@ import App_Profile from './App_Profile';
 import Login from './Login';
 import Signup from './Signup';
 
+import basename from '../config';
+
 export default class App extends React.Component {
   render() {
     return (
@@ -17,7 +19,7 @@ export default class App extends React.Component {
         <div className="stars"></div>
         <div className="twinkling"></div>
         <div className="clouds"></div>
-        <BrowserRouter basename='/Starchitect_Front'>
+        <BrowserRouter basename={basename}>
           <Switch>
             <Route exact path='/' component={Splash}></Route>
             <Route path='/Starmap' component={App_Starmap}></Route>
