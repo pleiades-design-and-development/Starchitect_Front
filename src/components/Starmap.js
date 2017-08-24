@@ -12,7 +12,6 @@ export default class Starmap extends React.Component {
         <img className='planets earth' src="p-earth.png" alt="earth"/>
         <img className='planets jupiter' src="p-jupiter.png" alt="jupiter"/>
         <img className='planets mars' src="p-mars.png" alt="mars"/>
-        <img id='glow' src="bg-glow.png" alt="glow"/>
       </div>
     );
   }
