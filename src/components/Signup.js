@@ -1,7 +1,5 @@
 import React from 'react';
 
-import Starmap from './App_Starmap'
-
 import {Form, Input, Button, Message} from 'semantic-ui-react';
 
 import {Redirect} from 'react-router-dom';
