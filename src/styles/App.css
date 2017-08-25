@@ -2,10 +2,47 @@
     margin: 0;
     padding: 0;
     color: white;
+    font-family: 'Quicksand', sans-serif;
 }
 
 
 /*CSS for twinkling stars background*/
+
+@keyframes move-stars-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 10000px 0;
+    }
+}
+
+@-webkit-keyframes move-stars-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 10000px 0;
+    }
+}
+
+@-moz-keyframes move-stars-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 10000px 0;
+    }
+}
+
+@-ms-keyframes move-stars-back {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: 10000px 0;
+    }
+}
 
 @keyframes move-twink-back {
     from {
@@ -80,8 +117,8 @@
 }
 
 .clouds {
+    height: 100%;
     background: transparent url(http://www.script-tutorials.com/demos/360/images/clouds3.png) repeat top center;
-    z-index: 3;
     -moz-animation: move-clouds-back 200s linear infinite;
     -ms-animation: move-clouds-back 200s linear infinite;
     -o-animation: move-clouds-back 200s linear infinite;
@@ -97,23 +134,26 @@
     left: 0;
     right: 0;
     bottom: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -100;
     display: block;
 }
 
 .stars {
     background: #000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+    -moz-animation: move-clouds-back 800s linear infinite;
+    -ms-animation: move-clouds-back 800s linear infinite;
+    -o-animation: move-clouds-back 800s linear infinite;
+    -webkit-animation: move-clouds-back 800s linear infinite;
+    animation: move-clouds-back 800s linear infinite;
 }
 
 .twinkling {
+    height: 100%;
     background: transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
-    -moz-animation: move-twink-back 200s linear infinite;
-    -ms-animation: move-twink-back 200s linear infinite;
-    -o-animation: move-twink-back 200s linear infinite;
-    -webkit-animation: move-twink-back 200s linear infinite;
-    animation: move-twink-back 200s linear infinite;
+    -moz-animation: move-twink-back 600s linear infinite;
+    -ms-animation: move-twink-back 600s linear infinite;
+    -o-animation: move-twink-back 600s linear infinite;
+    -webkit-animation: move-twink-back 600s linear infinite;
+    animation: move-twink-back 600s linear infinite;
 }
 
 
@@ -164,8 +204,10 @@
 
 /*CSS for Signup page*/
 
-#signup {
-    margin: 10vw;
+#signup_container {
+    height: 80vh;
+    width: 80vw;
+    margin: 10vh auto;
 }
 
 #signup label {
@@ -186,6 +228,14 @@
 
 /*CSS for Profile BaseLayout*/
 
+.profile-container {
+    height: 100vh;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+#sidebar {}
+
 #menu {
     background-color: rgba(105, 105, 192, 0.75);
     border: 1px solid #6969C0;
@@ -193,10 +243,11 @@
     box-shadow: 0 0 20px #6969C0;
     margin: 1em;
     width: 100%;
-    height: 97vh;
+    height: 95%;
     text-align: center;
     border-radius: 0;
     margin-right: 1em;
+    overflow-y: scroll;
 }
 
 #menu .item {
@@ -270,11 +321,6 @@
     font-weight: bold;
 }
 
-.profile-container {
-    display: flex;
-    flex-flow: row nowrap;
-}
-
 #menu .starmap_link {
     margin-top: 3%;
     background-color: rgba(0, 0, 0, 0.3);
@@ -316,9 +362,10 @@
     box-shadow: 0 0 20px #6969C0;
     margin: 1em 1em 1em 2em;
     width: 100%;
-    height: 97vh;
+    height: 95%;
     text-align: center;
     border-radius: 0;
+    overflow-y: scroll;
 }
 
 #feedWindow div {

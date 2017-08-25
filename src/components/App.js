@@ -14,10 +14,7 @@ import basename from '../config';
 export default class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <div className="stars"></div>
-        <div className="twinkling"></div>
-        <div className="clouds"></div>
+      <div className="App clouds">
         <BrowserRouter basename={basename}>
           <Switch>
             <Route exact path='/' component={Splash}></Route>
