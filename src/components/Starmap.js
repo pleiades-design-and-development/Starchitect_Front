@@ -3,10 +3,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 export default class Starmap extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
+  
   render() {
     return (
       <div className="set-speed view-2D zoom-close data-close controls-close">
