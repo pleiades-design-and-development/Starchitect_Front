@@ -7,6 +7,7 @@ import App_Starmap from './App_Starmap';
 import App_Profile from './App_Profile';
 import Login from './Login';
 import Signup from './Signup';
+import NoMatch from './NoMatch';
 
 import basename from '../config';
 
@@ -21,6 +22,7 @@ export default class App extends React.Component {
             <Route path='/Profile' component={App_Profile}></Route>
             <Route path='/Login' component={Login}></Route>
             <Route path='/Signup' component={Signup}></Route>
+            <Route path="*" component={NoMatch} status={404} />
           </Switch>
         </BrowserRouter>
       </div>
