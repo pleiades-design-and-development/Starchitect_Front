@@ -30,7 +30,7 @@ export default class Signup extends React.Component {
     let listItem = JSON.stringify({ firstname, lastname, callsign, email, password, password_confirmation });
     console.log(listItem);
 
-    fetch("https://starchitect.herokuapp.com/api/v1/users", {
+    fetch("https://starchitect.herokuapp.com/api/v1/signup", {
       method: "POST",
       body: listItem,
       headers: {

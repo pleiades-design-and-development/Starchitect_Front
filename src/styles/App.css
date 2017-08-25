@@ -118,7 +118,7 @@
 
 .clouds {
     height: 100%;
-    background: transparent url(http://www.script-tutorials.com/demos/360/images/clouds3.png) repeat top center;
+    background: transparent url(http://www.script-tutorials.com/demos/360/images/clouds3.png) repeat-x top center;
     -moz-animation: move-clouds-back 200s linear infinite;
     -ms-animation: move-clouds-back 200s linear infinite;
     -o-animation: move-clouds-back 200s linear infinite;
@@ -198,7 +198,7 @@
     left: 51%;
     top: 78%;
     margin-left: -47.5vw;
-    margin-top: -20vh
+    margin-top: -20vh;
 }
 
 
