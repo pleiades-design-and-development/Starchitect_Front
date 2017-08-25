@@ -30,7 +30,7 @@ export default class Base_Profile extends React.Component {
     }).then(function(data) {
       return data.json();
     }).then((response) => {
-      // console.log(response, "yay");
+      console.log(response, "yay");
       this.setState({user: response.data});
     }).catch(err => {
       console.log(err, "boo!");

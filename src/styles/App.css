@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    color: black;
+    color: white;
 }
 
 
@@ -252,12 +252,12 @@
     color: white;
 }
 
-#menu .link-color {
+.link-color {
     text-decoration: none;
     color: #DA7AFF;
 }
 
-#menu .link-color:hover {
+.link-color:hover {
     color: #1E184D;
 }
 
@@ -396,3 +396,88 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+/*CSS for NoMatch page*/
+.nomatch{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  font-size: 125%;
+}
+
+/*CSS for Starmap Base Layout component*/
+.base_starmap{
+  background-color: rgba(105, 105, 192, 0.75);
+  border: 1px solid #6969C0;
+  outline: none;
+  box-shadow: 0 0 20px #6969C0;
+  text-align: center;
+  margin: 1% 1% 0 1%;
+  height: 12vh;
+}
+.starmap_link{
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 20px #6969C0;
+  width: 100%;
+  padding: .5%;
+  margin-right: .5%;
+  font-size: 100%;
+  font-weight: bold;
+}
+
+
+/*CSS for Wiki Template pages*/
+#wiki_template .wiki_header{
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+#wiki_template .wiki_img{
+  border-radius: 50%;
+  width: 10%;
+  height: 10%;
+}
+#wiki_template .wiki_title{
+  flex: 1 0 70%;
+  width: 100%;
+}
+
+#wiki_template .sub_bucket{
+  background-color: rgba(105, 105, 192, 0.75);
+  border: 1px solid #6969C0;
+  box-shadow: 0 0 20px #6969C0;
+  width: 100%;
+  height: 60vh;
+  text-align: center;
+  border-radius: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: baseline;
+  z-index: 0;
+}
+#wiki_template .prose_subs{
+  flex: 1 0 70%;
+}
+#wiki_template .hard_data{
+  flex: 1 0 20%;
+}
+#wiki_template .YouAreHere{
+  width: 100%;
+  height: 150%;
+  border-radius: 50%;
+  z-index: -50;
+  position: fixed;
+  bottom: -110%;
+  -webkit-animation:spin 500s linear infinite;
+  -moz-animation:spin 500s linear infinite;
+  animation:spin 500s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); transform:rotate(360deg);  } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg);  } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
