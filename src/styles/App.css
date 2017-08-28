@@ -191,12 +191,12 @@
 /* CSS for Logo Animation */
 
 #Combined-Shape1 {
-    animation: logo1 2s linear 1s infinite alternate-reverse;
+    animation: logo1 1s linear 1s infinite alternate-reverse;
 }
 
 @keyframes logo1 {
     0% {
-        fill-opacity: .10;
+        fill-opacity: 0;
     }
     20% {
         fill-opacity: .20
@@ -216,12 +216,12 @@
 }
 
 #Combined-Shape2 {
-    animation: logo2 2s linear 0.5s infinite alternate-reverse;
+    animation: logo2 1s linear 0.5s infinite alternate-reverse;
 }
 
 @keyframes logo2 {
     0% {
-        fill-opacity: .10;
+        fill-opacity: 0;
     }
     20% {
         fill-opacity: .20
@@ -241,12 +241,12 @@
 }
 
 #Combined-Shape3 {
-    animation: logo3 2s linear infinite alternate-reverse;
+    animation: logo3 1s linear infinite alternate-reverse;
 }
 
 @keyframes logo3 {
     0% {
-        fill-opacity: .10;
+        fill-opacity: 0;
     }
     20% {
         fill-opacity: .20
@@ -286,13 +286,14 @@
     height: 60vh;
 }
 
-#msg_color{
-  color: black;
+#msg_color {
+    color: black;
 }
 
 #login label {
     color: white;
 }
+
 
 /*CSS for Profile BaseLayout*/
 
