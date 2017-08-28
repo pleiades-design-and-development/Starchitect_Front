@@ -6,9 +6,9 @@ import ProseExplorerTemplate from './ProseExplorerTemplate';
 import ProseCreatorTemplate from './ProseCreatorTemplate';
 import DataPlanet from './DataPlanet';
 import DataStar from './DataStar';
-import DataZodiac from './DataZodiac';
+import DataMoon from './DataMoon';
 
-const categories = {'Jupiter':'planet', 'Earth':'planet', 'Sol':'star', 'Mars':'planet', 'Mercury':'planet', 'Venus':'planet', 'Uranus':'planet', 'Neptune':'planet'}
+const categories = {'Jupiter':'planet', 'Earth':'planet', 'Sol':'star', 'Mars':'planet', 'Mercury':'planet', 'Venus':'planet', 'Uranus':'planet', 'Neptune':'planet', 'Saturn':'planet', 'Moon':'moon'}
 
 export default class Wiki_Template extends React.Component {
   constructor(props) {
@@ -48,7 +48,7 @@ export default class Wiki_Template extends React.Component {
             {mode === 'Explorer' ? <ProseExplorerTemplate/> : <ProseCreatorTemplate/>}
           </div>
           <div className='hard_data'>
-            {categories[this.state.title] === 'planet' ? <DataPlanet/> : categories[this.state.title] === 'star' ? <DataStar/> : <DataZodiac/>}
+            {categories[this.state.title] === 'planet' ? <DataPlanet/> : categories[this.state.title] === 'star' ? <DataStar/> : <DataMoon/>}
           </div>
         </div>
         <div className='Here_bucket'>

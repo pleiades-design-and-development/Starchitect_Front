@@ -6,6 +6,7 @@ import Starmap from './Starmap';
 import Wiki_Template from './Wiki_Template';
 import App_Profile from './App_Profile';
 import NoMatch from './NoMatch';
+import ProseExplorerTemplate from './ProseExplorerTemplate';
 
 import basename from '../config';
 
@@ -22,6 +23,7 @@ export default class App_Starmap extends React.Component {
             <Switch>
               <Route path='/Starmap' component={Starmap} />
               <Route path='/:object' component={Wiki_Template} />
+              <Route path='/ProseExplorerTemplate' component={ProseExplorerTemplate} />
               <Route path="/NoMatch" component={NoMatch} status={404} />
             </Switch>
           </Base_Starmap>
