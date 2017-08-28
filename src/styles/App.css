@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    color: white;
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -219,12 +218,16 @@
 
 #login {
     margin: 10vw;
+    height: 60vh;
+}
+
+#msg_color{
+  color: black;
 }
 
 #login label {
     color: white;
 }
-
 
 /*CSS for Profile BaseLayout*/
 
@@ -499,7 +502,7 @@
 }
 
 #sun a:hover{
-  cursor: pointer;
+  cursor: pointer
 }
 
 .planet {
@@ -969,6 +972,7 @@
     padding: 1%;
     margin: 1% 1% 0 1%;
     height: 100%;
+    color: white;
 }
 
 .starmap_link {
