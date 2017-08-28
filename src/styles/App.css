@@ -432,6 +432,10 @@
     height: 100%;
 }
 
+#solar-system a:hover {
+    cursor: pointer;
+}
+
 .orbit {
     position: absolute;
     top: 40%;
@@ -468,6 +472,17 @@
     background-repeat: no-repeat;
     background-size: cover;
     box-shadow: 0 0 60px rgba(255, 160, 60, 0.4);
+}
+
+#sun a {
+    position: absolute;
+    left: 55%;
+    height: 100%;
+    width: 45%;
+}
+
+#sun a:hover {
+    cursor: pointer;
 }
 
 .planet {
@@ -566,7 +581,7 @@
 /* --------------------------------------------------------------------------- close zoom */
 
 .zoom-close #solar-system {
-    width: 200%;
+    width: 190%;
     font-size: 100%;
 }
 
@@ -720,9 +735,10 @@
 
 #data a:hover {
     color: #FFF;
+    cursor: pointer;
 }
 
-#data a.active {
+#data a.solar_system_link.active {
     color: #0CF;
 }
 
@@ -928,8 +944,9 @@
     outline: none;
     box-shadow: 0 0 20px #6969C0;
     text-align: center;
+    padding: 1%;
     margin: 1% 1% 0 1%;
-    height: 12vh;
+    height: 100%;
 }
 
 .starmap_link {
