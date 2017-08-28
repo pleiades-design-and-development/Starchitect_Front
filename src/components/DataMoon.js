@@ -6,6 +6,10 @@ export default class DataZodiac extends React.Component {
   }
 
   render() {
-    return (<div>Zodiac hard data here!</div>);
+    return (
+      <div>
+        Moon hard data here!
+      </div>
+    );
   }
 }
