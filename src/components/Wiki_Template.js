@@ -2,7 +2,13 @@ import React from 'react';
 
 import {Redirect} from 'react-router-dom';
 
-const myAcceptableParameters = ['Jupiter', 'Earth', 'Sun', 'Mars', 'Mercury', 'Venus', 'Uranus', 'Neptune']
+import ProseExplorerTemplate from './ProseExplorerTemplate';
+import ProseCreatorTemplate from './ProseCreatorTemplate';
+import DataPlanet from './DataPlanet';
+import DataStar from './DataStar';
+import DataZodiac from './DataZodiac';
+
+const categories = {'Jupiter':'planet', 'Earth':'planet', 'Sol':'star', 'Mars':'planet', 'Mercury':'planet', 'Venus':'planet', 'Uranus':'planet', 'Neptune':'planet'}
 
 export default class Wiki_Template extends React.Component {
   constructor(props) {
@@ -10,6 +16,7 @@ export default class Wiki_Template extends React.Component {
     this.state = {
       title: props.match.params.object,
       image: '',
+      mode: sessionStorage.getItem('mode'),
     }
   }
 
@@ -27,11 +34,8 @@ export default class Wiki_Template extends React.Component {
   }
 
   render() {
-    if(this.title && !(this.title in myAcceptableParameters)){
-      return <Redirect to="/NoMatch"/>;
-    }
 
-    const {title, image} = this.state;
+    const {title, image, mode} = this.state;
     console.log(title);
     return (
       <div id='wiki_template'>
@@ -41,10 +45,10 @@ export default class Wiki_Template extends React.Component {
         </div>
         <div className='sub_bucket'>
           <div className='prose_subs'>
-            here is where the prose is
+            {mode === 'Explorer' ? <ProseExplorerTemplate/> : <ProseCreatorTemplate/>}
           </div>
           <div className='hard_data'>
-            here is where the hard data stats are
+            {categories[this.state.title] === 'planet' ? <DataPlanet/> : categories[this.state.title] === 'star' ? <DataStar/> : <DataZodiac/>}
           </div>
         </div>
         <div className='Here_bucket'>

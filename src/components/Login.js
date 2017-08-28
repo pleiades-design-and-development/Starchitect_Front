@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Redirect} from 'react-router-dom';
 
-import {Form, Input, Button, Message, Dimmer, Loader, Image, Segment} from 'semantic-ui-react';
+import {Form, Input, Button, Message, Loader } from 'semantic-ui-react';
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -42,6 +42,7 @@ export default class Login extends React.Component {
       } else{
         sessionStorage.setItem('api_token', 'Token token=' + response.data.attributes['api-token']);
         sessionStorage.setItem('userId', response.data.id);
+        sessionStorage.setItem('mode', 'Explorer');
         this.setState({redirect_profile: true})
       }
     }).catch(err => {
