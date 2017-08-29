@@ -1,26 +1,27 @@
 import React from 'react';
 
-import {Reveal, Form, Message, Button, Dimmer, Loader, Icon, Input} from 'semantic-ui-react'
+import {Reveal, Form, Message, Button, Dimmer, Loader, Icon, Input, Accordion} from 'semantic-ui-react'
 
 export default class ProseExplorerTemplate extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       active: false,
-      error: '',
+      error: false,
+      error_head: '',
       error_msg: '',
       api_token: sessionStorage.getItem('api_token'),
       user_id: Number(sessionStorage.getItem('userId')),
-      submit_object: props.object,
+      submit_object: props.explorer,
       submit_type: 'explorer',
       title: '',
       body: '',
+      submissions: [],
     }
   }
 
   handleChange = (e, { name, value }) => {
     this.setState({ [name]: value });
-    console.log(this.state[name]);
   }
 
   handleSubmit = (e) => {
@@ -40,24 +41,70 @@ export default class ProseExplorerTemplate extends React.Component {
         'Content-Type': 'application/json',
       },
       mode: 'cors'
+    }).then(purple => {
+      console.log(purple);
+      if(purple.status === 403){
+        this.setState({ error: true, error_head: `Error ${purple.status}`, error_msg: purple.statusText });
+      }if(purple.status === 404){
+        this.setState({ error: true, error_head: `Error ${purple.status}`, error_msg: purple.statusText });
+      }if(purple.status >= 400){
+        this.setState({ error: true, error_head: `Error ${purple.status}`, error_msg: 'Sorry, we are having technical difficulties. Try again.' });
+      }if(purple.status > 300 && purple.status < 400){
+        this.setState({ error: true, error_head: `Error ${purple.status}`, error_msg: "We can't accept that type of submission here. Please try again." });
+      }if(purple.status < 300){
+        this.setState({ success: true });
+        fetch('https://starchitect.herokuapp.com/api/v1/submissions/', {
+          method: 'GET',
+          headers: {
+            'Authorization': this.state.api_token,
+          },
+        }).then(function(data) {
+          return data.json();
+        }).then((response) => {
+          console.log(response, "yay");
+          this.setState({submissions: response.data});
+        }).catch(err => {
+          console.log(err, "boo!");
+        });
+      }
+      return purple;
     }).then(data => {
       return data.json();
     }).then(response => {
-      console.log(response, "yay");
-      this.setState({ success: true });
-      // this.setState({ submissions: submissions + response.? });
     }).catch(err => {
-      console.log(err, "boo!");
       this.setState({ error: true, error_msg: err.errors[0].detail });
     });
     this.setState({ title: '', body: '', active: false });
   }
 
-
+  componentDidMount() {
+    fetch('https://starchitect.herokuapp.com/api/v1/submissions/', {
+      method: 'GET',
+      headers: {
+        'Authorization': this.state.api_token,
+      },
+    }).then(function(data) {
+      return data.json();
+    }).then((response) => {
+      console.log(response, "yay");
+      this.setState({submissions: response.data.filter(submission => {
+        return !(submission.attributes.submit_type === 'explorer' && submission.attributes.submit_object === this.submit_object);
+      })});
+      console.log(this.state.submissions);
+    }).catch(err => {
+      console.log(err, "boo!");
+    });
+  }
 
 
   render() {
-    const {error, error_msg, active, success, title, body, api_token, user_id} = this.state;
+    const {error, error_head, error_msg, active, success, title, body, api_token, user_id, submissions} = this.state;
+
+    const panels = [];
+
+    submissions.map(submission => {
+      panels.push({title: submission.attributes.title, content: submission.attributes.body})
+    })
 
     return (
       <div>
@@ -73,13 +120,15 @@ export default class ProseExplorerTemplate extends React.Component {
           <Message
             style={{color: 'black'}}
             error
-            header='Action Forbidden'
+            header={error_head}
             content={error_msg}
           />
           <Button type='submit'>Submit</Button>
           <Loader inverted active={active} size='huge'>Loading</Loader>
         </Form>
         <div>
+          <Accordion panels={panels} fluid inverted exclusive={false} className='submission_accordion'>
+          </Accordion>
         </div>
       </div>
     );
