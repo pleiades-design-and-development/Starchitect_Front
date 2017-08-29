@@ -1,6 +1,8 @@
 import React from 'react';
 
-import {Form, Input, Button, Message} from 'semantic-ui-react';
+import Starmap from './App_Starmap'
+
+import {Form, Input, Button, Message, Loader, Dimmer } from 'semantic-ui-react';
 
 import {Redirect} from 'react-router-dom';
 
@@ -15,7 +17,7 @@ export default class Signup extends React.Component {
       password: '',
       password_confirmation: '',
       redirect_starmap: false,
-      error: false,
+      active: false,
     }
   }
 
@@ -25,6 +27,7 @@ export default class Signup extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    this.setState({active: true})
     const {firstname, lastname, callsign, email, password, password_confirmation} = this.state;
     let listItem = JSON.stringify({ firstname, lastname, callsign, email, password, password_confirmation });
     console.log(listItem);
@@ -43,6 +46,8 @@ export default class Signup extends React.Component {
       console.log(response, "yay");
       sessionStorage.setItem('api_token', 'Token token=' + response.data.attributes['api-token']);
       sessionStorage.setItem('userId', response.data.id);
+      sessionStorage.setItem('mode', 'Explorer');
+      sessionStorage.setItem('beacons', []);
       this.setState({ redirect_starmap: true });
     }).catch(err => {
       console.log(err, "boo!");
@@ -53,7 +58,7 @@ export default class Signup extends React.Component {
   }
 
   render() {
-    const { firstname, lastname, callsign, email, password, password_confirmation, redirect_starmap, error, error_msg } = this.state
+    const { firstname, lastname, callsign, email, password, password_confirmation, redirect_starmap, active } = this.state
     if (redirect_starmap) {
       return <Redirect push to='/Starmap'/>;
     }
@@ -72,7 +77,10 @@ export default class Signup extends React.Component {
             header='Houston, we have a problem!'
             content={error_msg}
           />
-        <Button type='submit'>Submit</Button>
+          <Button type='submit'>Submit</Button>
+          <Dimmer active={active}>
+          <Loader active={active} size='huge'>Loading</Loader>
+          </Dimmer>
         </Form>
       </div>
     );
