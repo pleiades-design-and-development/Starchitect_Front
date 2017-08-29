@@ -20,7 +20,6 @@ export default class App_Starmap extends React.Component {
               <Route path='/Starmap' component={Starmap} />
               <Route path='/:object' component={WikiTemplate} />
               <Route path='/ProseExplorerTemplate' component={ProseExplorerTemplate} />
-              <Route path='/:object' component={Wiki_Template} />
             </Switch>
           </BaseStarmap>
         </BrowserRouter>

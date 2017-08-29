@@ -18,6 +18,8 @@ export default class Signup extends React.Component {
       password_confirmation: '',
       redirect_starmap: false,
       active: false,
+      error: false,
+      error_msg: '',
     }
   }
 
@@ -58,7 +60,7 @@ export default class Signup extends React.Component {
   }
 
   render() {
-    const { firstname, lastname, callsign, email, password, password_confirmation, redirect_starmap, active } = this.state
+    const { firstname, lastname, callsign, email, password, password_confirmation, redirect_starmap, active, error, error_msg } = this.state
     if (redirect_starmap) {
       return <Redirect push to='/Starmap'/>;
     }
