@@ -1055,6 +1055,10 @@
     color: white;
 }
 
+#wiki_template svg:hover{
+  cursor: pointer;
+}
+
 #wiki_template .sub_bucket {
     background-color: rgba(105, 105, 192, 0.75);
     border: 1px solid #6969C0;
@@ -1110,3 +1114,5 @@
         transform: rotate(360deg);
     }
 }
+
+/*CSS for Prose Explorer Template page*/
