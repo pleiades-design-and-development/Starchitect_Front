@@ -43,6 +43,7 @@ export default class Login extends React.Component {
         sessionStorage.setItem('api_token', 'Token token=' + response.data.attributes['api-token']);
         sessionStorage.setItem('userId', response.data.id);
         sessionStorage.setItem('mode', 'Explorer');
+        sessionStorage.setItem('beacons', []);
         this.setState({redirect_profile: true})
       }
     }).catch(err => {
