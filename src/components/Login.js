@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Redirect} from 'react-router-dom';
 
-import {Form, Input, Button, Message} from 'semantic-ui-react';
+import {Form, Input, Button, Message, Loader } from 'semantic-ui-react';
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -13,6 +13,7 @@ export default class Login extends React.Component {
       redirect_profile: false,
       error: false,
       error_msg: '',
+      active: false,
     };
   }
 
@@ -22,6 +23,7 @@ export default class Login extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    this.setState({active: true})
     const { callsign, password } = this.state;
     let listItem = JSON.stringify({ callsign, password });
     fetch("https://starchitect.herokuapp.com/api/v1/login", {
@@ -36,11 +38,12 @@ export default class Login extends React.Component {
     }).then(response => {
       console.log(response, "yay");
       if(response.errors){
-        this.setState({ error_msg: response.errors[0].detail || ''})
-        this.setState({ error: true})
+        this.setState({error: true, error_msg: response.errors[0].detail})
       } else{
         sessionStorage.setItem('api_token', 'Token token=' + response.data.attributes['api-token']);
         sessionStorage.setItem('userId', response.data.id);
+        sessionStorage.setItem('mode', 'Explorer');
+        sessionStorage.setItem('beacons', []);
         this.setState({redirect_profile: true})
       }
     }).catch(err => {
@@ -50,22 +53,28 @@ export default class Login extends React.Component {
   }
 
   render() {
-    const { callsign, password, redirect_profile, error, error_msg } = this.state
+    const { callsign, password, redirect_profile, error, error_msg, active } = this.state
     if (redirect_profile) {
       return <Redirect push to='/Profile'/>;
     }
     return (
       <div>
         <Form size='big' key='big' onSubmit={this.handleSubmit} id='login' error={error}>
-          <Form.Field id='form-input-control-callsign' name='callsign' value={callsign} control={Input} label='What does your squad call you?' placeholder='Callsign' onChange={this.handleChange} />
+          <Form.Field id='form-input-control-callsign' name='callsign' value={callsign} control={Input} label='What does your squad call you?' placeholder='Callsign' onChange={this.handleChange} autoFocus/>
           <Form.Field id='form-input-control-password' name='password' type='password' value={password} control={Input} label='What is your high command authorization code?' placeholder='Password' onChange={this.handleChange} />
           <Message
-            color='black'
+            success
+            header='Form Completed'
+            content="You are now enlisted in the Explorer Corps. Welcome Cadet!"
+          />
+          <Message
+            id='msg_color'
             error
-            header='Houston, we have a problem!'
+            header='Action Forbidden'
             content={error_msg}
           />
           <Button type='submit'>Submit</Button>
+          <Loader inverted active={active} size='huge'>Loading</Loader>
         </Form>
       </div>
     );

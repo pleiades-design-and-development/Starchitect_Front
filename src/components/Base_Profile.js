@@ -41,8 +41,10 @@ export default class Base_Profile extends React.Component {
     this.setState({ active: !this.state.active });
     if(this.state.mode === 'Explorer'){
       this.setState({mode: 'Creator'});
+      sessionStorage.setItem('mode', 'Creator');
     } else{
       this.setState({mode: 'Explorer'});
+      sessionStorage.setItem('mode', 'Explorer');
     }
   }
 
@@ -83,7 +85,7 @@ export default class Base_Profile extends React.Component {
                 position='right center'
                 />
               </p>
-              <p><Link to={'./Starmap'} className='link-color'>Jupiter</Link></p>
+              <p><Link to={'./Jupiter'} className='link-color'>Jupiter</Link></p>
             </Menu.Item>
             <Menu.Item name='beacons'>
               <p className='head'>
@@ -96,10 +98,10 @@ export default class Base_Profile extends React.Component {
                 />
               </p>
 
-              <p><Link to={'./Starmap'} className='link-color'>Jupiter</Link></p>
-              <p><Link to={'./Starmap'} className='link-color'>Io</Link></p>
-              <p><Link to={'./Starmap'} className='link-color'>Europa</Link></p>
-              <p><Link to={'./Starmap'} className='link-color'>Mars</Link></p>
+              <p><Link to={'./Jupiter'} className='link-color'>Jupiter</Link></p>
+              <p><Link to={'./Io'} className='link-color'>Io</Link></p>
+              <p><Link to={'./Europa'} className='link-color'>Europa</Link></p>
+              <p><Link to={'./Mars'} className='link-color'>Mars</Link></p>
               <Link to='/Beacons' className='link-color'>More...</Link>
             </Menu.Item>
             <Menu.Item name='feed_link'>

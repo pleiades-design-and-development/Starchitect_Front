@@ -8,15 +8,15 @@ export default class Starmap extends React.Component {
     return (
       <div className="set-speed view-2D zoom-close data-close controls-close">
         <div id="data">
-          <Link to='/Sun'><a className="sun" title="sun">Sun</a></Link>
-          <Link to='/Mercury'><a className="mercury" title="mercury">Mercury</a></Link>
-          <Link to='/Venus'><a className="venus" title="venus">Venus</a></Link>
-          <Link to='/Earth'><a className="earth" title="earth">Earth</a></Link>
-          <Link to='/Mars'><a className="mars" title="mars">Mars</a></Link>
-          <Link to='/Jupiter'><a className="jupiter" title="jupiter">Jupiter</a></Link>
-          <Link to='/Saturn'><a className="saturn" title="saturn">Saturn</a></Link>
-          <Link to='/Uranus'><a className="uranus" title="uranus">Uranus</a></Link>
-          <Link to='/Neptune'><a className="neptune" title="neptune">Neptune</a></Link>
+          <Link className='solar_system_link' className="sun" title="sun" to="/Sol">Sun</Link>
+          <Link className='solar_system_link' className="mercury" title="mercury" to="/Mercury">Mercury</Link>
+          <Link className='solar_system_link' className="venus" title="venus" to="/Venus">Venus</Link>
+          <Link className='solar_system_link' className="earth" title="earth" to="/Earth">Earth</Link>
+          <Link className='solar_system_link' className="mars" title="mars" to="/Mars">Mars</Link>
+          <Link className='solar_system_link' className="jupiter" title="jupiter" to="/jupiter">Jupiter</Link>
+          <Link className='solar_system_link' className="saturn" title="saturn" to="/Saturn">Saturn</Link>
+          <Link className='solar_system_link' className="uranus" title="uranus" to="/Uranus">Uranus</Link>
+          <Link className='solar_system_link' className="neptune" title="neptune" to="/Neptune">Neptune</Link>
         </div>
         <div id="universe" className="scale-stretched set-speed">
           <div id="galaxy">
@@ -66,15 +66,10 @@ export default class Starmap extends React.Component {
                   <Link to='/Neptune'><div className="planet"></div></Link>
                 </div>
               </div>
-              <Link to='/Sun'><div id="sun"></div></Link>
+              <div id="sun"><Link to='/Sol' id='sun_link'></Link></div>
             </div>
           </div>
         </div>
-
-        {/*<Link to='/Sun'><img id='sun' style={{width: '20em'}} src="Sun.png" alt="sun"/></Link>
-        <Link to='/Earth'><img classNameNameName='planets earth' src="p-earth.png" alt="earth"/></Link>
-        <Link to='/Jupiter'><img classNameNameName='planets jupiter' src="p-jupiter.png" alt="jupiter"/></Link>
-        <Link to='/Mars'><img classNameNameName='planets mars' src="p-mars.png" alt="mars"/></Link>*/}
       </div>
     );
   }
