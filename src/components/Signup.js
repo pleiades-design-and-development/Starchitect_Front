@@ -51,6 +51,8 @@ export default class Signup extends React.Component {
       this.setState({ redirect_starmap: true });
     }).catch(err => {
       console.log(err, "boo!");
+      this.setState({ error: err.errors[0].detail || ''});
+      this.setState({ error: err.email[0] || ''})
     });
     this.setState({ firstname: '', lastname: '', callsign: '', email: '', password: '', password_confirmation: '' });
   }
@@ -62,7 +64,7 @@ export default class Signup extends React.Component {
     }
     return (
       <div id='signup_container'>
-        <Form size='small' key='big' onSubmit={this.handleSubmit} id='signup'>
+        <Form size='small' key='big' onSubmit={this.handleSubmit} id='signup' error={error}>
           <Form.Field id='form-input-control-firstname' name='firstname' value={firstname} control={Input} label='What is your name, cadet?' placeholder='First Name' onChange={this.handleChange} />
           <Form.Field id='form-input-control-lastname' name='lastname' value={lastname} control={Input} label='What is your family name, cadet?' placeholder='Last Name' onChange={this.handleChange} />
           <Form.Field id='form-input-control-callsign' name='callsign' value={callsign} control={Input} label='What do they call you?' placeholder='Callsign' onChange={this.handleChange} />
@@ -70,14 +72,10 @@ export default class Signup extends React.Component {
           <Form.Field id='form-input-control-password' name='password' type='password' value={password} control={Input} label='What is your high command authorization code?' placeholder='Password' onChange={this.handleChange} />
           <Form.Field id='form-input-control-password_confirmation' name='password_confirmation' type='password' value={password_confirmation} control={Input} label='Please confirm your high command authorization code?' placeholder='Please confirm your password' onChange={this.handleChange} />
           <Message
-            success
-            header='Form Completed'
-            content="You are now enlisted in the Explorer Corps. Welcome Cadet!"
-          />
-          <Message
+            color='black'
             error
-            header='Action Forbidden'
-            content='You can only sign up for an account once with a given e-mail address.'
+            header='Houston, we have a problem!'
+            content={error_msg}
           />
           <Button type='submit'>Submit</Button>
           <Dimmer active={active}>

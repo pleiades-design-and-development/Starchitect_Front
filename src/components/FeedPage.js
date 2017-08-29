@@ -2,9 +2,6 @@ import React from 'react';
 import { Feed, Icon } from 'semantic-ui-react'
 
 export default class FeedPage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
@@ -12,7 +9,7 @@ export default class FeedPage extends React.Component {
         <Feed>
           <Feed.Event>
             <Feed.Label>
-              <img src='/assets/images/avatar/small/elliot.jpg' />
+              <img src='/assets/images/avatar/small/elliot.jpg' alt='user avatar'/>
             </Feed.Label>
             <Feed.Content>
               <Feed.Summary>
@@ -29,15 +26,15 @@ export default class FeedPage extends React.Component {
           </Feed.Event>
 
           <Feed.Event>
-            <Feed.Label image='/assets/images/avatar/small/helen.jpg' />
+            <Feed.Label image='/assets/images/avatar/small/helen.jpg' alt='user avatar' />
             <Feed.Content>
               <Feed.Summary>
                 <a>Helen Troy</a> added <a>2 new illustrations</a>
                 <Feed.Date>4 days ago</Feed.Date>
               </Feed.Summary>
               <Feed.Extra images>
-                <a><img src='/assets/images/wireframe/image.png' /></a>
-                <a><img src='/assets/images/wireframe/image.png' /></a>
+                <a><img src='/assets/images/wireframe/image.png' alt='post' /></a>
+                <a><img src='/assets/images/wireframe/image.png' alt='post' /></a>
               </Feed.Extra>
               <Feed.Meta>
                 <Feed.Like>
@@ -49,7 +46,7 @@ export default class FeedPage extends React.Component {
           </Feed.Event>
 
           <Feed.Event>
-            <Feed.Label image='/assets/images/avatar/small/jenny.jpg' />
+            <Feed.Label image='/assets/images/avatar/small/jenny.jpg' alt='user avatar' />
             <Feed.Content>
               <Feed.Summary date='2 Days Ago' user='Jenny Hess' content='add you as a friend' />
               <Feed.Meta>
@@ -62,7 +59,7 @@ export default class FeedPage extends React.Component {
           </Feed.Event>
 
           <Feed.Event>
-            <Feed.Label image='/assets/images/avatar/small/joe.jpg' />
+            <Feed.Label image='/assets/images/avatar/small/joe.jpg' alt='user avatar' />
             <Feed.Content>
               <Feed.Summary>
                 <a>Joe Henderson</a> posted on his page
@@ -83,15 +80,15 @@ export default class FeedPage extends React.Component {
           </Feed.Event>
 
           <Feed.Event>
-            <Feed.Label image='/assets/images/avatar/small/justen.jpg' />
+            <Feed.Label image='/assets/images/avatar/small/justen.jpg' alt='user avatar' />
             <Feed.Content>
               <Feed.Summary>
                 <a>Justen Kitsune</a> added <a>2 new photos</a> of you
                 <Feed.Date>4 days ago</Feed.Date>
               </Feed.Summary>
               <Feed.Extra images>
-                <a><img src='/assets/images/wireframe/image.png' /></a>
-                <a><img src='/assets/images/wireframe/image.png' /></a>
+                <a><img src='/assets/images/wireframe/image.png' alt='post' /></a>
+                <a><img src='/assets/images/wireframe/image.png' alt='post' /></a>
               </Feed.Extra>
               <Feed.Meta>
                 <Feed.Like>

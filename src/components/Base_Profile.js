@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Input, Label, Menu, Progress, Button, Popup, Icon } from 'semantic-ui-react'
+import { Menu, Progress, Button, Popup, Icon } from 'semantic-ui-react'
 
 import {Link} from 'react-router-dom';
 
@@ -55,7 +55,7 @@ export default class Base_Profile extends React.Component {
       <div className='profile-container'>
         <div id='sidebar'>
           <Menu vertical id='menu'>
-            <img src='profile-image.jpeg' alt='profile image' className='profile_image'/>
+            <img src='profile-image.jpeg' alt='profile avatar' className='profile_image'/>
             <p className='callsign'>{Object.keys(user).length ? user.attributes.callsign : 'Callsign'}</p>
             <Menu.Item name='rank' id='rank'>
               <img src='cadetBadge.svg' alt='rank badge' />
