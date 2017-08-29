@@ -426,7 +426,7 @@
 
 /*CSS for Feed page*/
 
-.feedWindow {
+#feedWindow {
     background-color: rgba(105, 105, 192, 0.5);
     border: 1px solid #6969C0;
     outline: none;
@@ -437,10 +437,7 @@
     text-align: center;
     border-radius: 0;
     overflow-y: scroll;
-}
-
-#feedWindow div {
-    margin: auto;
+    color: white;
 }
 
 
@@ -1016,21 +1013,10 @@
     outline: none;
     box-shadow: 0 0 20px #6969C0;
     text-align: center;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    margin: 1%;
-    height: 12vh;
-=======
-=======
->>>>>>> 8e1576be7e3c3aaf7c9d414e44c2758987b5f732
     padding: 1%;
     margin: 1% 1% 0 1%;
     height: 100%;
     color: white;
-<<<<<<< HEAD
->>>>>>> a662361ef6080911c5b1ea6efe90de326b637a89
-=======
->>>>>>> 8e1576be7e3c3aaf7c9d414e44c2758987b5f732
 }
 
 .starmap_link {
@@ -1063,24 +1049,13 @@
 
 #wiki_template .wiki_title {
     flex: 1 0 70%;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 8e1576be7e3c3aaf7c9d414e44c2758987b5f732
     width: 100%;
     color: white;
 }
 
-<<<<<<< HEAD
+
 #wiki_template svg:hover{
   cursor: pointer;
->>>>>>> a662361ef6080911c5b1ea6efe90de326b637a89
-=======
-#wiki_template svg:hover {
-    cursor: pointer;
->>>>>>> 8e1576be7e3c3aaf7c9d414e44c2758987b5f732
-}
 
 #wiki_template .sub_bucket {
     width: 100%;
@@ -1099,8 +1074,13 @@
     border: 1px solid #6969C0;
     box-shadow: 0 0 20px #6969C0;
     flex: 1 0 70%;
-    height: 60vh;
-    margin: 1%;
+    background-color: rgba(105, 105, 192, 0.75);
+    border: 1px solid #6969C0;
+    box-shadow: 0 0 20px #6969C0;
+    height: 50vh;
+    margin: 0 1% 1% 1%;
+    overflow-y: scroll;
+
 }
 
 #wiki_template .hard_data {
@@ -1109,8 +1089,13 @@
     outline: none;
     box-shadow: 0 0 20px #6969C0;
     flex: 1 0 20%;
-    height: 60vh;
-    margin: 1%;
+    background-color: rgba(105, 105, 192, 0.75);
+    border: 1px solid #6969C0;
+    box-shadow: 0 0 20px #6969C0;
+    height: 50vh;
+    margin: 0 1% 1% 0;
+    overflow-y: scroll;
+
 }
 
 #wiki_template .YouAreHere {
@@ -1145,14 +1130,5 @@
         transform: rotate(360deg);
     }
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
 /*CSS for Prose Explorer Template page*/
->>>>>>> a662361ef6080911c5b1ea6efe90de326b637a89
-=======
-
-
-/*CSS for Prose Explorer Template page*/
->>>>>>> 8e1576be7e3c3aaf7c9d414e44c2758987b5f732
