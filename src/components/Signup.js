@@ -64,7 +64,7 @@ export default class Signup extends React.Component {
     }
     return (
       <div id='signup_container'>
-        <Form size='small' key='big' onSubmit={this.handleSubmit} id='signup' error={error}>
+        <Form size='small' key='big' onSubmit={this.handleSubmit} id='signup'>
           <Form.Field id='form-input-control-firstname' name='firstname' value={firstname} control={Input} label='What is your name, cadet?' placeholder='First Name' onChange={this.handleChange} />
           <Form.Field id='form-input-control-lastname' name='lastname' value={lastname} control={Input} label='What is your family name, cadet?' placeholder='Last Name' onChange={this.handleChange} />
           <Form.Field id='form-input-control-callsign' name='callsign' value={callsign} control={Input} label='What do they call you?' placeholder='Callsign' onChange={this.handleChange} />
@@ -75,7 +75,6 @@ export default class Signup extends React.Component {
             color='black'
             error
             header='Houston, we have a problem!'
-            content={error_msg}
           />
           <Button type='submit'>Submit</Button>
           <Dimmer active={active}>
