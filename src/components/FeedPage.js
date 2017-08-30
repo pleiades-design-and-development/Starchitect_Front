@@ -5,7 +5,7 @@ export default class FeedPage extends React.Component {
 
   render() {
     return (
-      <div id='feedWindow'>
+      <div className='feedWindow'>
         <Feed>
           <Feed.Event>
             <Feed.Label>
