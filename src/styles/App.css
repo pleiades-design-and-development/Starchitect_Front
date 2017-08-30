@@ -136,6 +136,7 @@
     }
     
     .stars {
+        z-index: -3;
         background: #000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
         -moz-animation: move-clouds-back 800s linear infinite;
         -ms-animation: move-clouds-back 800s linear infinite;
@@ -263,9 +264,28 @@
     /*CSS for Signup page*/
     
     #signup_container {
-        height: 80vh;
-        width: 80vw;
-        margin: 10vh auto;
+        width: 100%;
+        margin-top: 10vh;
+    }
+    
+    #signup_container2 {
+        width: 100%;
+        margin-top: 10.7vh;
+    }
+    
+    #signup_container2 img {
+        margin: 5vh auto;
+    }
+    
+    #signup>div>div.centered.row>div.twelve.wide.column>button {
+        color: white;
+        background-color: rgba(0, 0, 0, 0.6);
+        box-shadow: 0 0 20px #6969C0;
+        text-align: center;
+        width: 100%;
+        margin: 1px;
+        border-radius: 0;
+        font-size: 100%;
     }
     
     #signup label {
@@ -292,8 +312,6 @@
         display: flex;
         flex-flow: row nowrap;
     }
-    
-    #sidebar {}
     
     #menu {
         background-color: rgba(105, 105, 192, 0.75);
@@ -438,6 +456,7 @@
         height: 97vh;
         text-align: center;
         border-radius: 0;
+        overflow-y: scroll;
     }
     
     #crew_bucket {
