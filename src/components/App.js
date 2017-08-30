@@ -2,6 +2,7 @@ import React from 'react';
 import '../styles/App.css';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
+
 import Splash from './Splash';
 import App_Starmap from './App_Starmap';
 import App_Profile from './App_Profile';
