@@ -41,7 +41,6 @@ export default class Wiki_Template extends React.Component {
   render() {
 
     const {object, image, mode} = this.state;
-    console.log(object);
     return (
       <div id='wiki_template'>
         <div className='wiki_header'>
@@ -62,10 +61,10 @@ export default class Wiki_Template extends React.Component {
         </div>
         <div className='sub_bucket'>
           <div className='prose_subs'>
-            {mode === 'Explorer' ? <ProseExplorerTemplate object={this.state.object}/> : <ProseCreatorTemplate object={this.state.object}/>}
+            {mode === 'Explorer' ? <ProseExplorerTemplate explorer={this.state.object}/> : <ProseCreatorTemplate creator={this.state.object}/>}
           </div>
           <div className='hard_data'>
-            {categories[this.state.object] === 'planet' ? <DataPlanet object={this.state.object}/> : categories[this.state.object] === 'star' ? <DataStar object={this.state.object}/> : <DataMoon object={this.state.object}/>}
+            {categories[this.state.object] === 'planet' ? <DataPlanet planet={this.state.object}/> : categories[this.state.object] === 'star' ? <DataStar star={this.state.object}/> : <DataMoon moon={this.state.object}/>}
           </div>
         </div>
         <div className='Here_bucket'>
