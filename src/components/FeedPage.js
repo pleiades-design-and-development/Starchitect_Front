@@ -2,6 +2,30 @@ import React from 'react';
 import { Feed, Icon } from 'semantic-ui-react'
 
 export default class FeedPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      crew: [],
+      api_token: sessionStorage.getItem('api_token'),
+    }
+  }
+
+  componentDidMount() {
+    fetch("https://starchitect.herokuapp.com/api/v1/users", {
+      method: 'GET',
+      headers: {
+        'Authorization': this.state.api_token,
+      },
+    }).then(function(data) {
+      return data.json();
+    }).then((response) => {
+      console.log(response, "yay");
+      this.setState({crew: response.data});
+    }).catch(err => {
+      console.log(err, "boo!");
+    });
+  }
+
 
   render() {
     return (

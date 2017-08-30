@@ -56,6 +56,7 @@ export default class Signup extends React.Component {
     e.preventDefault();
     this.setState({active: true})
     const {firstname, lastname, callsign, email, password, password_confirmation, avatar} = this.state;
+
     let listItem = new FormData()
     listItem.append( 'firstname', firstname );
     listItem.append( 'lastname', lastname );
@@ -69,7 +70,7 @@ export default class Signup extends React.Component {
 
     fetch("https://starchitect.herokuapp.com/api/v1/signup", {
       method: "POST",
-      body: listItem,
+      body: listItem, avatar,
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'multipart/form-data; boundary=boundary'
