@@ -12,7 +12,7 @@ export default class ProseExplorerTemplate extends React.Component {
       error_msg: '',
       api_token: sessionStorage.getItem('api_token'),
       user_id: Number(sessionStorage.getItem('userId')),
-      submit_object: props.explorer,
+      submit_object: this.props.explorer,
       submit_type: 'explorer',
       title: '',
       body: '',
@@ -88,7 +88,7 @@ export default class ProseExplorerTemplate extends React.Component {
     }).then((response) => {
       console.log(response, "yay");
       this.setState({submissions: response.data.filter(submission => {
-        return !(submission.attributes.submit_type === 'explorer' && submission.attributes.submit_object === this.submit_object);
+        return !(submission.attributes.submit_type === 'explorer' && submission.attributes.submit_object === this.props.explorer);
       })});
       console.log(this.state.submissions);
     }).catch(err => {
@@ -102,9 +102,11 @@ export default class ProseExplorerTemplate extends React.Component {
 
     const panels = [];
 
-    submissions.map(submission => {
-      panels.push({title: submission.attributes.title, content: submission.attributes.body})
+    submissions.map((submission, index) => {
+      panels.push({title: submission.attributes.title, content: submission.attributes.body, key: index})
     })
+
+    console.log(this.props.explorer);
 
     return (
       <div>
@@ -115,7 +117,7 @@ export default class ProseExplorerTemplate extends React.Component {
             style={{color: 'black'}}
             success
             header='Submission Upload Complete'
-            content="Thank you for your contribution to the Starchive! You are a great addition to the Explorer Corps."
+            content='Thank you for your contribution to the Starchive! You are a great addition to the Explorer Corps.'
           />
           <Message
             style={{color: 'black'}}
