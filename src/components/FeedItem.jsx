@@ -1,22 +1,23 @@
 import React from 'react';
-import { Feed, Icon, Button } from 'semantic-ui-react'
+import { Feed, Icon, Button, Input } from 'semantic-ui-react'
 
 export default class FeedItem extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            likes: 0
+            likes: 0,
+            active: null,
         };
     }
 
     addLike = (e) => {
         e.preventDefault();
-        this.setState({likes: +1});
+        this.setState({likes: +1, active: 'inverted'});
     }
 
     render () {
 
-        const {likes} = this.state;
+        const {likes, active} = this.state;
 
         const {submission} = this.props; 
 
@@ -39,9 +40,9 @@ export default class FeedItem extends React.Component{
 
                             <Feed.Meta>
                                 <Feed.Like>
-                                {likes}  <Button size='mini' icon style={{marginLeft: '1vw'}} onClick={this.addLike}><Icon name='like' /></Button>
-                                <Button size='mini' icon onClick={this.addLike}>Likes</Button>
+                                <Button size='mini' icon style={{marginLeft: '1vw'}} onClick={this.addLike}>{likes}  <Icon color={active} name='like outline'/></Button>
                                 </Feed.Like>
+                                <Input style={{marginTop: '2vh'}} transparent placeholder='Write a comment...' />
                             </Feed.Meta>
                         </Feed.Content>
 
@@ -51,3 +52,4 @@ export default class FeedItem extends React.Component{
         )
     }
 }
+
