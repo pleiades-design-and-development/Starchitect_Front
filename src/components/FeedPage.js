@@ -45,6 +45,8 @@ export default class FeedPage extends React.Component {
 
     return (
       <div className='feedWindow'>
+        <br/>
+        <h3 style={{color: 'white', fontWeight: '100'}}>Welcome Cadet, here's a quick update on crew activities</h3>
           {submissions.map((submission, index) => <FeedItem submission={submission} key={index}/>)}
       </div>
     );
