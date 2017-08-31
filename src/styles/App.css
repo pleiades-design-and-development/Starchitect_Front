@@ -1114,6 +1114,16 @@
         }
     }
     /*CSS for Prose Explorer Template page*/
+    
+    #wiki_template>div.sub_bucket>div.prose_subs>div>div>div {
+        width: 80%;
+        margin: 5vh auto;
+        background-color: rgba(105, 105, 192, 0.5);
+        border: 1px solid #6969C0;
+        outline: none;
+        box-shadow: 0 0 20px #6969C0;
+        padding: 1vh;
+    }
     /*CSS for NoMatch page*/
     
     .nomatch {
