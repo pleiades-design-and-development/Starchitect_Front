@@ -31,7 +31,7 @@ export default class FeedItem extends React.Component{
 
                         <Feed.Content>
                             <Feed.Summary>
-                                <Feed.User style={{color: 'white', fontWeight: '100'}}>{submission.attributes.callsign}</Feed.User> made a post from {submission.attributes["submit-object"]} as {submission.attributes["submit-type"] === "Explorer" || "explorer" ? "an" : "a"} {submission.attributes["submit-type"]}
+                                <Feed.User style={{color: 'white', fontWeight: '100'}}>{submission.attributes.callsign}</Feed.User> made a post from {submission.attributes["submit-object"]} as {submission.attributes["submit-type"] === "explorer" ? "an" : "a"} {submission.attributes["submit-type"]}
                             </Feed.Summary>
 
                             <Feed.Extra>
