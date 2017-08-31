@@ -30,14 +30,14 @@ export default class FeedPage extends React.Component {
       return data.json();
     }).then((response) => {
       console.log(response, "yay");
-      this.setState({submissions: response.data.filter(submission => {
-        return !(submission.attributes.submit_type === 'explorer' && submission.attributes.submit_object === this.props.explorer);
-      })});
+      this.setState({submissions: response.data});
       console.log(this.state.submissions);
     }).catch(err => {
       console.log(err, "boo!");
     });
   }
+
+ 
 
 
   render() {
@@ -47,8 +47,13 @@ export default class FeedPage extends React.Component {
       <div className='feedWindow'>
         <br/>
         <h3 style={{color: 'white', fontWeight: '100'}}>Welcome Cadet, here's a list of your contributions to the core</h3>
-          {submissions.map((submission, index) => <SubmissionItem submission={submission} key={index}/>)}
+          {*/This does not work yet/*}
+          {submissions.filter(function (submission){
+            return submission.relationships.user.data.id === user_id
+          }).map((submission, index) => <SubmissionItem submission={submission} key={index}/>)}
       </div>
     );
   }
 }
+
+
