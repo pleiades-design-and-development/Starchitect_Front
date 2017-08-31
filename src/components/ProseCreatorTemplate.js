@@ -12,7 +12,7 @@ export default class ProseExplorerTemplate extends React.Component {
       error_msg: '',
       api_token: sessionStorage.getItem('api_token'),
       user_id: Number(sessionStorage.getItem('userId')),
-      submit_object: props.explorer,
+      submit_object: this.props.creator,
       submit_type: 'Creator',
       title: '',
       body: '',
@@ -27,7 +27,7 @@ export default class ProseExplorerTemplate extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.setState({active: true})
-    console.log(this.state.object);
+    const {creator} = this.props;
     const {user_id, submit_type, title, body, submit_object} = this.state;
     let listItem = JSON.stringify({ user_id, submit_type, title, body, submit_object });
     console.log(listItem);
@@ -62,7 +62,23 @@ export default class ProseExplorerTemplate extends React.Component {
           return data.json();
         }).then((response) => {
           console.log(response, "yay");
-          this.setState({submissions: response.data});
+          const submissions = response.data;
+          console.log('Submissions\n', submissions);
+          function isFromObject(submission) {
+            return (submission['submit-type'] === 'Creator' && submission['submit-object'] === creator);
+          }
+
+          function filterByID(item) {
+            if (isFromObject(item.attributes)) {
+              return true;
+            }
+            return false;
+          }
+
+          var filteredData = submissions.filter(filterByID);
+
+          this.setState({submissions: filteredData});
+          console.log('submissions in state\n', this.state.submissions);
         }).catch(err => {
           console.log(err, "boo!");
         });
@@ -78,6 +94,7 @@ export default class ProseExplorerTemplate extends React.Component {
   }
 
   componentDidMount() {
+    const {creator} = this.props;
     fetch('https://starchitect.herokuapp.com/api/v1/submissions/', {
       method: 'GET',
       headers: {
@@ -87,10 +104,23 @@ export default class ProseExplorerTemplate extends React.Component {
       return data.json();
     }).then((response) => {
       console.log(response, "yay");
-      this.setState({submissions: response.data.filter(submission => {
-        return !(submission.attributes.submit_type === 'Creator' && submission.attributes.submit_object === this.submit_object);
-      })});
-      console.log(this.state.submissions);
+      const submissions = response.data;
+      console.log('data\n', submissions);
+      function isFromObject(submission) {
+        return (submission['submit-type'] === 'Creator' && submission['submit-object'] === creator);
+      }
+
+      function filterByID(item) {
+        if (isFromObject(item.attributes)) {
+          return true;
+        }
+        return false;
+      }
+
+      var filteredData = submissions.filter(filterByID);
+
+      this.setState({submissions: filteredData});
+      console.log('submissions in state\n', this.state.submissions);
     }).catch(err => {
       console.log(err, "boo!");
     });
