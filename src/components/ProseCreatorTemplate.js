@@ -13,7 +13,7 @@ export default class ProseExplorerTemplate extends React.Component {
       api_token: sessionStorage.getItem('api_token'),
       user_id: Number(sessionStorage.getItem('userId')),
       submit_object: props.explorer,
-      submit_type: 'creator',
+      submit_type: 'Creator',
       title: '',
       body: '',
       submissions: [],
@@ -88,7 +88,7 @@ export default class ProseExplorerTemplate extends React.Component {
     }).then((response) => {
       console.log(response, "yay");
       this.setState({submissions: response.data.filter(submission => {
-        return !(submission.attributes.submit_type === 'creator' && submission.attributes.submit_object === this.submit_object);
+        return !(submission.attributes.submit_type === 'Creator' && submission.attributes.submit_object === this.submit_object);
       })});
       console.log(this.state.submissions);
     }).catch(err => {
