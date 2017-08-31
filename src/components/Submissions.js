@@ -11,7 +11,7 @@ export default class FeedPage extends React.Component {
       error_head: '',
       error_msg: '',
       api_token: sessionStorage.getItem('api_token'),
-      user_id: Number(sessionStorage.getItem('userId')),
+      user_id: (sessionStorage.getItem('userId')),
       submit_object: this.props.explorer,
       submit_type: 'explorer',
       title: '',
@@ -30,8 +30,11 @@ export default class FeedPage extends React.Component {
       return data.json();
     }).then((response) => {
       console.log(response, "yay");
-      this.setState({submissions: response.data});
-      console.log(this.state.submissions);
+      const userID = this.state.user_id;
+      this.setState({submissions: (response.data).filter( function (submission) {
+        return submission.relationships.user.data.id === userID;
+      })});
+      console.log(this.state.user_id);
     }).catch(err => {
       console.log(err, "boo!");
     });
@@ -47,11 +50,8 @@ export default class FeedPage extends React.Component {
       <div className='feedWindow'>
         <br/>
         <h3 style={{color: 'white', fontWeight: '100'}}>Welcome Cadet, here's a list of your contributions to the core</h3>
-          {/*This does not work yet*/}
-          {submissions.filter(function (submission){
-            return submission.relationships.user.data.id === user_id
-          }).map((submission, index) => <SubmissionItem submission={submission} key={index}/>)}
+          {submissions.map((submission, index) => <SubmissionItem submission={submission} key={index}/>)}
       </div>
     );
-  }
+  } 
 }
