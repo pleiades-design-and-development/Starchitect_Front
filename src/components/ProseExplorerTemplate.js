@@ -13,7 +13,7 @@ export default class ProseExplorerTemplate extends React.Component {
       api_token: sessionStorage.getItem('api_token'),
       user_id: Number(sessionStorage.getItem('userId')),
       submit_object: this.props.explorer,
-      submit_type: 'explorer',
+      submit_type: 'Explorer',
       title: '',
       body: '',
       submissions: [],
@@ -87,10 +87,25 @@ export default class ProseExplorerTemplate extends React.Component {
       return data.json();
     }).then((response) => {
       console.log(response, "yay");
-      this.setState({submissions: response.data.filter(submission => {
-        return !(submission.attributes.submit_type === 'explorer' && submission.attributes.submit_object === this.props.explorer);
-      })});
-      console.log(this.state.submissions);
+      const submissions = response.data;
+      function isFromObject(submission) {
+        console.log(submission);
+        return (submission.attributes.submit_type === 'Explorer' && submission.attributes.submit_object === this.props.explorer);
+      }
+
+      function filterByID(item) {
+        if (isFromObject(item.id)) {
+          return true;
+        }
+        return false;
+      }
+
+      var filteredData = submissions.filter(filterByID);
+
+      console.log('Filtered Array\n', filteredData);
+
+      this.setState({submissions: filteredData});
+      console.log('Submissions in state\n', this.state.submissions);
     }).catch(err => {
       console.log(err, "boo!");
     });
