@@ -1,5 +1,5 @@
 import React from 'react';
-import { Feed, Icon, Button, Input } from 'semantic-ui-react'
+import { Feed, Icon, Button, Input, Accordion } from 'semantic-ui-react'
 
 export default class FeedItem extends React.Component{
     constructor(props){
@@ -12,7 +12,7 @@ export default class FeedItem extends React.Component{
 
     addLike = (e) => {
         e.preventDefault();
-        this.setState({likes: +1, active: 'inverted'});
+        this.setState({likes: +1, active: 'purple'});
     }
 
     render () {
@@ -35,12 +35,23 @@ export default class FeedItem extends React.Component{
                             </Feed.Summary>
 
                             <Feed.Extra>
-                                title: {submission.attributes.title}
+                                <Accordion>
+                                    <Accordion.Title>
+                                        <Icon name='dropdown' />
+                                        {submission.attributes.title}
+                                    </Accordion.Title>
+                                
+                                    <Accordion.Content>
+                                        <p>
+                                            {submission.attributes.body}
+                                        </p>
+                                    </Accordion.Content>
+                                </Accordion>
                             </Feed.Extra>
 
                             <Feed.Meta>
                                 <Feed.Like>
-                                <Button size='mini' icon style={{marginLeft: '1vw'}} onClick={this.addLike}>{likes}  <Icon color={active} name='like outline'/></Button>
+                                <Button size='mini' icon style={{marginLeft: '1vw'}} onClick={this.addLike}>{likes} <Icon color={active} name='like outline'/></Button>
                                 </Feed.Like>
                                 <Input style={{marginTop: '2vh'}} transparent placeholder='Write a comment...' />
                             </Feed.Meta>
