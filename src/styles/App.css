@@ -1078,7 +1078,7 @@
         box-shadow: 0 0 20px #6969C0;
         flex: 1 0 20%;
         height: 60vh;
-        margin: 1%;
+        margin: 1% 1% 1% 0;
     }
 
     #wiki_template .YouAreHere {
@@ -1257,4 +1257,16 @@
             transform: rotate(360deg);
         }
     }
-    /*CSS for Prose Explorer Template page*/
+
+    /*CSS for hard data pages*/
+    #hard_data_sidebar{
+      background-color: rgba(105, 105, 192, 0.75);
+      border: 1px solid #6969C0;
+      outline: none;
+      box-shadow: 0 0 20px #6969C0;
+      width: 95%;
+      height: 95%;
+      text-align: center;
+      border-radius: 0;
+      margin: 1%;
+    }

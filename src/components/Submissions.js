@@ -19,7 +19,7 @@ export default class FeedPage extends React.Component {
       submissions: [],
     }
   }
-  
+
   componentDidMount() {
     fetch('https://starchitect.herokuapp.com/api/v1/submissions/', {
       method: 'GET',
@@ -37,7 +37,7 @@ export default class FeedPage extends React.Component {
     });
   }
 
- 
+
 
 
   render() {
@@ -47,7 +47,7 @@ export default class FeedPage extends React.Component {
       <div className='feedWindow'>
         <br/>
         <h3 style={{color: 'white', fontWeight: '100'}}>Welcome Cadet, here's a list of your contributions to the core</h3>
-          {*/This does not work yet/*}
+          {/*This does not work yet*/}
           {submissions.filter(function (submission){
             return submission.relationships.user.data.id === user_id
           }).map((submission, index) => <SubmissionItem submission={submission} key={index}/>)}
@@ -55,5 +55,3 @@ export default class FeedPage extends React.Component {
     );
   }
 }
-
-
