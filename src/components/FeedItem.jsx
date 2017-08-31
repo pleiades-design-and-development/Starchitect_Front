@@ -39,8 +39,8 @@ export default class FeedItem extends React.Component{
 
                             <Feed.Meta>
                                 <Feed.Like>
-                                <Button icon style={{marginRight: '2vw'}} onClick={this.addLike}><Icon name='like' /></Button>
-                                {likes} Likes
+                                {likes}  <Button size='mini' icon style={{marginLeft: '1vw'}} onClick={this.addLike}><Icon name='like' /></Button>
+                                <Button size='mini' icon onClick={this.addLike}>Likes</Button>
                                 </Feed.Like>
                             </Feed.Meta>
                         </Feed.Content>
