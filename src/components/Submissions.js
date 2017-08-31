@@ -19,7 +19,7 @@ export default class FeedPage extends React.Component {
       submissions: [],
     }
   }
-  
+
   componentDidMount() {
     fetch('https://starchitect.herokuapp.com/api/v1/submissions/', {
       method: 'GET',
@@ -40,7 +40,7 @@ export default class FeedPage extends React.Component {
     });
   }
 
- 
+
 
 
   render() {
@@ -55,5 +55,3 @@ export default class FeedPage extends React.Component {
     );
   } 
 }
-
-
