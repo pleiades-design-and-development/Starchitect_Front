@@ -27,7 +27,7 @@ export default class ProseExplorerTemplate extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.setState({active: true})
-    console.log(this.state.object);
+    const {explorer} = this.props;
     const {user_id, submit_type, title, body, submit_object} = this.state;
     let listItem = JSON.stringify({ user_id, submit_type, title, body, submit_object });
     console.log(listItem);
@@ -62,7 +62,21 @@ export default class ProseExplorerTemplate extends React.Component {
           return data.json();
         }).then((response) => {
           console.log(response, "yay");
-          this.setState({submissions: response.data});
+          const submissions = response.data;
+          function isFromObject(submission) {
+            return (submission['submit-type'] === 'Explorer' && submission['submit-object'] === explorer);
+          }
+
+          function filterByID(item) {
+            if (isFromObject(item.attributes)) {
+              return true;
+            }
+            return false;
+          }
+
+          var filteredData = submissions.filter(filterByID);
+
+          this.setState({submissions: filteredData});
         }).catch(err => {
           console.log(err, "boo!");
         });
@@ -78,6 +92,7 @@ export default class ProseExplorerTemplate extends React.Component {
   }
 
   componentDidMount() {
+    const {explorer} = this.props;
     fetch('https://starchitect.herokuapp.com/api/v1/submissions/', {
       method: 'GET',
       headers: {
@@ -89,12 +104,11 @@ export default class ProseExplorerTemplate extends React.Component {
       console.log(response, "yay");
       const submissions = response.data;
       function isFromObject(submission) {
-        console.log(submission);
-        return (submission.attributes.submit_type === 'Explorer' && submission.attributes.submit_object === this.props.explorer);
+        return (submission['submit-type'] === 'Explorer' && submission['submit-object'] === explorer);
       }
 
       function filterByID(item) {
-        if (isFromObject(item.id)) {
+        if (isFromObject(item.attributes)) {
           return true;
         }
         return false;
@@ -102,10 +116,7 @@ export default class ProseExplorerTemplate extends React.Component {
 
       var filteredData = submissions.filter(filterByID);
 
-      console.log('Filtered Array\n', filteredData);
-
       this.setState({submissions: filteredData});
-      console.log('Submissions in state\n', this.state.submissions);
     }).catch(err => {
       console.log(err, "boo!");
     });
@@ -120,8 +131,6 @@ export default class ProseExplorerTemplate extends React.Component {
     submissions.map((submission, index) => {
       panels.push({title: submission.attributes.title, content: submission.attributes.body, key: index})
     })
-
-    console.log(this.props.explorer);
 
     return (
       <div>
