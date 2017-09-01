@@ -56,7 +56,14 @@ export default class Signup extends React.Component {
     e.preventDefault();
     this.setState({active: true})
     const {firstname, lastname, callsign, email, password, password_confirmation, avatar} = this.state;
-    let listItem = JSON.stringify({firstname, lastname, callsign, email, password, password_confirmation});
+    let listItem = new FormData()
+    listItem.append( 'firstname', firstname );
+    listItem.append( 'lastname', lastname );
+    listItem.append( 'callsign', callsign );
+    listItem.append( 'email', email );
+    listItem.append( 'password', password );
+    listItem.append( 'password_confirmation', password_confirmation );
+    listItem.append( 'avatar', avatar );
 
     console.log(listItem);
 
@@ -65,7 +72,7 @@ export default class Signup extends React.Component {
       body: listItem,
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'multipart/form-data; boundary=boundary'
       },
       mode: 'cors'
     }).then(data => {
@@ -79,6 +86,8 @@ export default class Signup extends React.Component {
       this.setState({ redirect_starmap: true });
     }).catch(err => {
       console.log(err, "boo!");
+      this.setState({ error: err.errors[0].detail || ''});
+      this.setState({ error: err.email[0] || ''})
     });
     this.setState({ firstname: '', lastname: '', callsign: '', email: '', password: '', password_confirmation: '', imagePreviewUrl: '' });
   }

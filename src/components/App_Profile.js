@@ -7,6 +7,7 @@ import FeedPage from './FeedPage';
 import Beacons from './Beacons';
 import Submissions from './Submissions';
 import CrewLounge from './Crew_Lounge';
+import WikiTemplate from './Wiki_Template';
 
 import basename from '../config';
 
@@ -22,6 +23,7 @@ export default class App_Profile extends React.Component {
               <Route path='/Beacons' component={Beacons}></Route>
               <Route path='/Submissions' component={Submissions}></Route>
               <Route path='/CrewLounge' component={CrewLounge}></Route>
+              <Route path='/:object' component={WikiTemplate} />
             </Switch>
           </BaseProfile>
         </BrowserRouter>
