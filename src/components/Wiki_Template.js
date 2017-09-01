@@ -66,7 +66,7 @@ export default class Wiki_Template extends React.Component {
           <div className='prose_subs'>
             {mode === 'Explorer' ? <ProseExplorerTemplate explorer={this.state.object}/> : <ProseCreatorTemplate creator={this.state.object}/>}
           </div>
-          <div id='hard_data'>
+          <div className='hard_data'>
             {categories[this.state.object] === 'planet' ? <DataPlanet planet={this.state.object}/> : categories[this.state.object] === 'star' ? <DataStar star={this.state.object}/> : <DataMoon moon={this.state.object}/>}
           </div>
         </div>

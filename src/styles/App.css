@@ -991,6 +991,8 @@
         font-size: 125%;
         color: white;
     }
+
+
     /*CSS for Starmap Base Layout component*/
 
     .base_starmap {
@@ -1026,16 +1028,20 @@
     }
 
     #wiki_template .wiki_img {
-        flex: 1 0 10%;
-        align-self: flex-start;
+        flex: 1 0 5%;
+        margin: 2%;
+        width: 1%;
+        height: 1%;
+        align-self: center;
         border-radius: 50%;
     }
 
     #wiki_template .wiki_title {
-        flex: 1 0 30%;
+        flex: 1 0 50%;
         color: white;
         margin: 2%;
         text-align: center;
+        align-self: center;
     }
 
     #wiki_template .beacon {
@@ -1058,7 +1064,6 @@
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-around;
-        align-items: baseline;
         z-index: 0;
     }
 
@@ -1066,9 +1071,12 @@
         background-color: rgba(105, 105, 192, 0.75);
         border: 1px solid #6969C0;
         box-shadow: 0 0 20px #6969C0;
-        flex: 1 0 70%;
-        height: 60vh;
-        margin: 1%;
+        flex: 1 0 65%;
+        margin-top: 0;
+        height: 65vh;
+        margin: 0 1% 1% 1%;
+        padding: 2%;
+        overflow-y: scroll;
     }
 
     #wiki_template .hard_data {
@@ -1076,9 +1084,10 @@
         border: 1px solid #6969C0;
         outline: none;
         box-shadow: 0 0 20px #6969C0;
-        flex: 1 0 20%;
-        height: 60vh;
-        margin: 1% 1% 1% 0;
+        flex: 1 0 25%;
+        margin: 0 1% 1% 0;
+        height: 65vh;
+        overflow-y: scroll;
     }
 
     #wiki_template .YouAreHere {
@@ -1124,139 +1133,6 @@
         box-shadow: 0 0 20px #6969C0;
         padding: 1vh;
     }
-    /*CSS for NoMatch page*/
-
-    .nomatch {
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        height: 100vh;
-        font-size: 125%;
-        color: white;
-    }
-    /*CSS for Starmap Base Layout component*/
-
-    .base_starmap {
-        background-color: rgba(105, 105, 192, 0.75);
-        border: 1px solid #6969C0;
-        outline: none;
-        box-shadow: 0 0 20px #6969C0;
-        text-align: center;
-        padding: 1%;
-        margin: 1% 1% 0 1%;
-        height: 100%;
-        color: white;
-    }
-
-    .starmap_link {
-        background-color: rgba(0, 0, 0, 0.3);
-        box-shadow: 0 0 20px #6969C0;
-        width: 100%;
-        padding: .5%;
-        margin-right: .5%;
-        font-size: 100%;
-        font-weight: bold;
-    }
-    /*CSS for Wiki Template pages*/
-
-    #wiki_template .wiki_header {
-        display: flex;
-        flex-flow: row nowrap;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        color: white;
-    }
-
-    #wiki_template .wiki_img {
-        border-radius: 50%;
-        width: 10%;
-        height: 10%;
-    }
-
-    #wiki_template .wiki_title {
-        flex: 1 0 70%;
-        width: 100%;
-        color: white;
-    }
-
-    #wiki_template svg:hover {
-        cursor: pointer;
-    }
-
-    #wiki_template .sub_bucket {
-        width: 100%;
-        height: 60vh;
-        text-align: center;
-        border-radius: 0;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-around;
-        align-items: baseline;
-        z-index: 0;
-    }
-
-    #wiki_template .prose_subs {
-        background-color: rgba(105, 105, 192, 0.75);
-        border: 1px solid #6969C0;
-        box-shadow: 0 0 20px #6969C0;
-        flex: 1 0 70%;
-        background-color: rgba(105, 105, 192, 0.75);
-        border: 1px solid #6969C0;
-        box-shadow: 0 0 20px #6969C0;
-        height: 50vh;
-        margin: 0 1% 1% 1%;
-        overflow-y: scroll;
-    }
-
-    #wiki_template .hard_data {
-        background-color: rgba(105, 105, 192, 0.5);
-        border: 1px solid #6969C0;
-        outline: none;
-        box-shadow: 0 0 20px #6969C0;
-        flex: 1 0 20%;
-        background-color: rgba(105, 105, 192, 0.75);
-        border: 1px solid #6969C0;
-        box-shadow: 0 0 20px #6969C0;
-        height: 50vh;
-        margin: 0 1% 1% 0;
-        overflow-y: scroll;
-    }
-
-    #wiki_template .YouAreHere {
-        width: 100%;
-        height: auto;
-        border-radius: 50%;
-        z-index: -1;
-        position: fixed;
-        bottom: -125%;
-        -webkit-animation: spin 500s infinite;
-        -moz-animation: spin 500s infinite;
-        animation: spin 500s infinite;
-    }
-
-    @-moz-keyframes spin {
-        100% {
-            -moz-transform: rotate(360deg);
-            transform: rotate(360deg);
-        }
-    }
-
-    @-webkit-keyframes spin {
-        100% {
-            -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-        }
-    }
-
-    @keyframes spin {
-        100% {
-            -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-        }
-    }
 
     /*CSS for hard data pages*/
     #hard_data_sidebar{
@@ -1265,9 +1141,24 @@
       outline: none;
       box-shadow: 0 0 20px #6969C0;
       width: 95%;
-      height: 50vh;
+      height: 100%;
       text-align: center;
       border-radius: 0;
-      margin: 1%;
-      overflow-y: scroll;
+      margin-left: 2%;
+      margin-top: 2%;
+    }
+    #hard_data_sidebar .hard_data_forms{
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-around;
+    }
+
+    #hard_data_sidebar .hard_data_formfield{
+      height: 75%;
+      width: 70%;
+    }
+
+    #hard_data_sidebar button{
+      margin-bottom: 10%;
+      width: 23%;
     }
