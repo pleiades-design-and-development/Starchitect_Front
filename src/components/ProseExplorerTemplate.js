@@ -129,7 +129,7 @@ export default class ProseExplorerTemplate extends React.Component {
     const panels = [];
 
     submissions.map((submission, index) => {
-      panels.push({title: submission.attributes.title, content: submission.attributes.body, key: index})
+      panels.push({title: submission.attributes.title, content: submission.attributes.body, key: String(index)})
     })
 
     return (
