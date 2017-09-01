@@ -86,7 +86,7 @@ export default class Base_Profile extends React.Component {
                 position='right center'
                 />
               </p>
-              <p><Link to={'./Jupiter'} className='link-color'>Jupiter</Link></p>
+              <p><Link to='/Jupiter' className='link-color'>Jupiter</Link></p>
             </Menu.Item>
             <Menu.Item name='beacons'>
               <p className='head'>
