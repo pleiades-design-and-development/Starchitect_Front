@@ -19,10 +19,10 @@ export default class FeedItem extends React.Component{
 
         const {likes, active} = this.state;
 
-        const {submission} = this.props; 
+        const {submission} = this.props;
 
         return(
-            <div>   
+            <div>
                 <Feed>
                     <Feed.Event>
                         <Feed.Label>
@@ -30,18 +30,18 @@ export default class FeedItem extends React.Component{
                         </Feed.Label>
 
                         <Feed.Content>
-                            <Feed.Summary>
+                            <Feed.Summary id='feed_summary'>
                                 <Feed.User style={{color: 'white', fontWeight: '100'}}>{submission.attributes.callsign}</Feed.User> made a post from {submission.attributes["submit-object"]} as {submission.attributes["submit-type"] === "Explorer" || "explorer" ? "an" : "a"} {submission.attributes["submit-type"]}
                             </Feed.Summary>
 
                             <Feed.Extra>
                                 <Accordion>
-                                    <Accordion.Title>
+                                    <Accordion.Title id='feed_title'>
                                         <Icon name='dropdown' />
                                         {submission.attributes.title}
                                     </Accordion.Title>
-                                
-                                    <Accordion.Content>
+
+                                    <Accordion.Content id='feed_content'>
                                         <p>
                                             {submission.attributes.body}
                                         </p>
@@ -63,4 +63,3 @@ export default class FeedItem extends React.Component{
         )
     }
 }
-

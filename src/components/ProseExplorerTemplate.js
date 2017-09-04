@@ -153,7 +153,7 @@ export default class ProseExplorerTemplate extends React.Component {
           <Loader inverted active={active} size='huge'>Loading</Loader>
         </Form>
         <div>
-          <Accordion panels={panels} fluid inverted styled exclusive={false} className='submission_accordion'>
+          <Accordion panels={panels} fluid inverted styled exclusive={false} id='submission_accordion'>
           </Accordion>
         </div>
       </div>
