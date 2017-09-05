@@ -10,6 +10,8 @@ import DataMoon from './DataMoon';
 
 const categories = {'Jupiter':'planet', 'Earth':'planet', 'Sol':'star', 'Mars':'planet', 'Mercury':'planet', 'Venus':'planet', 'Uranus':'planet', 'Neptune':'planet', 'Saturn':'planet', 'Moon':'moon'}
 
+// let listItem = JSON.stringify({ "op": "add", "path": "/beacons", "value": object, "beacons": 0 });
+
 export default class Wiki_Template extends React.Component {
   constructor(props) {
     super(props);
@@ -17,36 +19,80 @@ export default class Wiki_Template extends React.Component {
       object: props.match.params.object,
       image: '',
       mode: sessionStorage.getItem('mode'),
-      beacons: sessionStorage.getItem('beacons'),
+      userId: sessionStorage.getItem('userId'),
+      api_token: sessionStorage.getItem('api_token'),
+      beacons: [],
     }
   }
 
   componentDidMount() {
-    fetch(`https://images-api.nasa.gov/search?title=${this.state.object}&media_type=image`, {
+    const { object, beacons, userId, api_token } = this.state;
+    console.log(beacons);
+    fetch(`https://images-api.nasa.gov/search?title=${object}&media_type=image`, {
       method: 'GET',
-    }).then(function(data) {
+    }).then((data) => {
       return data.json();
     }).then((response) => {
       console.log(response, "yay");
       this.setState({image: response.collection.items[0].links[0].href});
     }).catch(err => {
       console.log(err, "boo!");
-    });
+    }).then(() => {
+      fetch(`https://starchitect.herokuapp.com/api/v1/users/${userId}`, {
+        method: 'GET',
+        headers: {
+          'Authorization': api_token,
+        },
+      }).then(function(data) {
+        return data.json();
+      }).then((response) => {
+        console.log(response, "yay");
+        this.setState({ beacons: response.data.attributes.beacons });
+      }).catch(err => {
+        console.log(err, "boo!");
+      });
+    })
   }
 
   handleBeaconClick = () => {
+    const { object, userId, beacons, api_token } = this.state;
 
+    if(!beacons.includes(object)){
+
+      const beacon = this.state.object
+
+      let listItem = JSON.stringify({ "beacons": Object.assign([...beacons, object]) });
+
+      fetch(`https://starchitect.herokuapp.com/api/v1/users/${userId}`, {
+        method: 'PATCH',
+        body: listItem,
+        headers: {
+          'Authorization': this.state.api_token,
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        mode: 'cors',
+      }).then(function(data) {
+        return data.json();
+      }).then((response) => {
+        console.log(response, "yay");
+      }).catch(err => {
+        console.log(err, "boo!");
+      });
+    }
   }
 
   render() {
+    const { object, image, mode, beacons } = this.state;
 
-    const {object, image, mode} = this.state;
+    const active = beacons.includes(object) ? 'active_beacon' : null;
+
     return (
       <div id='wiki_template'>
         <div className='wiki_header'>
           <img src={image} alt='Astronomical object' className='wiki_img' />
           <h2 className='wiki_title'>{object}</h2>
-          <div className='beacon' onClick={this.handleBeaconClick}>
+          <div className='beacon' onClick={this.handleBeaconClick} className={active}>
             <span>Set a Beacon!</span>
             <svg width="80%" height="80%" viewBox="0 0 643 601" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                 <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
