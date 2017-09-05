@@ -10,6 +10,8 @@ import DataMoon from './DataMoon';
 
 const categories = {'Jupiter':'planet', 'Earth':'planet', 'Sol':'star', 'Mars':'planet', 'Mercury':'planet', 'Venus':'planet', 'Uranus':'planet', 'Neptune':'planet', 'Saturn':'planet', 'Moon':'moon'}
 
+// let listItem = JSON.stringify({ "op": "add", "path": "/beacons", "value": object, "beacons": 0 });
+
 export default class Wiki_Template extends React.Component {
   constructor(props) {
     super(props);
@@ -59,16 +61,19 @@ export default class Wiki_Template extends React.Component {
   handleBeaconClick = () => {
     const { object, userId, beacons, api_token } = this.state;
 
-    if(!beacons.includes(object)){
-      sessionStorage.setItem('beacons', [beacons, object]);
 
-      let listItem = JSON.stringify({ beacons, object })
+
+    if(!beacons.includes(object)){
+
+      const beacon = this.state.object
+
+      let listItem = JSON.stringify({ "op": "add", "path": "/beacons", "beacons": `{${[...beacons, object].toString()}}` });
 
       fetch(`https://starchitect.herokuapp.com/api/v1/users/${userId}`, {
         method: 'PATCH',
         body: listItem,
         headers: {
-          'Authorization': api_token,
+          'Authorization': this.state.api_token,
           'Accept': 'application/json',
           'Content-Type': 'application/json',
         },
@@ -77,7 +82,7 @@ export default class Wiki_Template extends React.Component {
         return data.json();
       }).then((response) => {
         console.log(response, "yay");
-        this.setState({ active: 'active_beacon' });
+        console.log(response.data.attributes.beacons);
       }).catch(err => {
         console.log(err, "boo!");
       });
@@ -86,8 +91,6 @@ export default class Wiki_Template extends React.Component {
 
   render() {
     const { object, image, mode, active, beacons } = this.state;
-
-    console.log(beacons);
 
     return (
       <div id='wiki_template'>
