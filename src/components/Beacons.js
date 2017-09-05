@@ -1,16 +1,20 @@
 import React from 'react';
 
+import {Link} from 'react-router-dom';
+
 export default class Beacons extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       beacons: [],
+      userId: sessionStorage.getItem('userId'),
       api_token: sessionStorage.getItem('api_token'),
     }
   }
 
   componentDidMount() {
-    fetch("https://starchitect.herokuapp.com/api/v1/users", {
+    const { userId } = this.state;
+    fetch(`https://starchitect.herokuapp.com/api/v1/users/${userId}`, {
       method: 'GET',
       headers: {
         'Authorization': this.state.api_token,
@@ -19,7 +23,7 @@ export default class Beacons extends React.Component {
       return data.json();
     }).then((response) => {
       console.log(response, "yay");
-      this.setState({beacons: response.data});
+      this.setState({beacons: response.data.attributes.beacons});
     }).catch(err => {
       console.log(err, "boo!");
     });
@@ -33,7 +37,7 @@ export default class Beacons extends React.Component {
         <div id='beacon_bucket'>
           {beacons.map((beacon, index) => (
             <div className='beacon_box' key = {index}>
-              <p>{beacon}</p>
+              <Link to='/{beacon}'>{beacon}</Link>
             </div>
           ))}
         </div>

@@ -18,6 +18,7 @@ export default class Base_Profile extends React.Component {
       api_token: sessionStorage.getItem('api_token'),
       userId: sessionStorage.getItem('userId'),
       user: {},
+      beacons: [],
     }
   }
 
@@ -31,7 +32,7 @@ export default class Base_Profile extends React.Component {
       return data.json();
     }).then((response) => {
       console.log(response, "yay");
-      this.setState({user: response.data});
+      this.setState({user: response.data, beacons: response.data.attributes.beacons});
     }).catch(err => {
       console.log(err, "boo!");
     });
@@ -50,7 +51,7 @@ export default class Base_Profile extends React.Component {
   }
 
   render() {
-    const {mode, active, user} = this.state;
+    const {mode, active, user, beacons} = this.state;
     console.log(user);
     return (
       <div className='profile-container'>
@@ -98,11 +99,14 @@ export default class Base_Profile extends React.Component {
                 position='right center'
                 />
               </p>
-
-              <p><Link to={'./Jupiter'} className='link-color'>Jupiter</Link></p>
+              {beacons.map((beacon, index) => (
+                <p><a href={`/${beacon}`} className='link-color'>{beacon}</a></p>
+                )
+              )}
+              {/*<p><Link to={'./Jupiter'} className='link-color'>Jupiter</Link></p>
               <p><Link to={'./Io'} className='link-color'>Io</Link></p>
               <p><Link to={'./Europa'} className='link-color'>Europa</Link></p>
-              <p><Link to={'./Mars'} className='link-color'>Mars</Link></p>
+              <p><Link to={'./Mars'} className='link-color'>Mars</Link></p>*/}
               <Link to='/Beacons' className='link-color'>More...</Link>
             </Menu.Item>
             <Menu.Item name='feed_link'>

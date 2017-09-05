@@ -22,7 +22,6 @@ export default class Wiki_Template extends React.Component {
       userId: sessionStorage.getItem('userId'),
       api_token: sessionStorage.getItem('api_token'),
       beacons: [],
-      active: null,
     }
   }
 
@@ -52,22 +51,17 @@ export default class Wiki_Template extends React.Component {
       }).catch(err => {
         console.log(err, "boo!");
       });
-      if(beacons.includes(object)){
-        this.setState({ active: 'active_beacon' });
-      }
     })
   }
 
   handleBeaconClick = () => {
     const { object, userId, beacons, api_token } = this.state;
 
-
-
     if(!beacons.includes(object)){
 
       const beacon = this.state.object
 
-      let listItem = JSON.stringify({ "op": "add", "path": "/beacons", "beacons": `{${[...beacons, object].toString()}}` });
+      let listItem = JSON.stringify({ "beacons": Object.assign([...beacons, object]) });
 
       fetch(`https://starchitect.herokuapp.com/api/v1/users/${userId}`, {
         method: 'PATCH',
@@ -82,7 +76,6 @@ export default class Wiki_Template extends React.Component {
         return data.json();
       }).then((response) => {
         console.log(response, "yay");
-        console.log(response.data.attributes.beacons);
       }).catch(err => {
         console.log(err, "boo!");
       });
@@ -90,7 +83,9 @@ export default class Wiki_Template extends React.Component {
   }
 
   render() {
-    const { object, image, mode, active, beacons } = this.state;
+    const { object, image, mode, beacons } = this.state;
+
+    const active = beacons.includes(object) ? 'active_beacon' : null;
 
     return (
       <div id='wiki_template'>
