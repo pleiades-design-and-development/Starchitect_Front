@@ -37,7 +37,7 @@ export default class Beacons extends React.Component {
         <div id='beacon_bucket'>
           {beacons.map((beacon, index) => (
             <div className='beacon_box' key = {index}>
-              <Link to='/{beacon}'>{beacon}</Link>
+              <Link to={`./${beacon}`}>{beacon}</Link>
             </div>
           ))}
         </div>

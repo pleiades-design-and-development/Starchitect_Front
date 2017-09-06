@@ -91,8 +91,8 @@ export default class Wiki_Template extends React.Component {
           <img src={image} alt='Astronomical object' className='wiki_img' />
           <h2 className='wiki_title'>{object}</h2>
           <div className='beacon' onClick={this.handleBeaconClick} className={active}>
-            <span>Set a Beacon!</span>
-            <svg width="80%" height="80%" viewBox="0 0 643 601" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+            <p id='beacon2'>Set a Beacon!</p>
+            <svg width="50%" height="50%" viewBox="0 0 643 601" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                 <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                     <g id="Artboard">
                         <g id="Group" transform="translate(223.000000, 271.000000)">
