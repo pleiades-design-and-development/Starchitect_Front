@@ -68,20 +68,29 @@ export default class Signup extends React.Component {
         'Content-Type': 'application/json'
       },
       mode: 'cors'
-    }).then(data => {
-      return data.json();
-    }).then(response => {
-      console.log(response, "yay");
-      sessionStorage.setItem('api_token', 'Token token=' + response.data.attributes['api-token']);
-      sessionStorage.setItem('userId', response.data.id);
-      sessionStorage.setItem('mode', 'Explorer');
-      sessionStorage.setItem('beacons', []);
-      this.setState({ redirect_starmap: true });
-    }).catch(err => {
-      console.log(err, "boo!");
-    });
-    this.setState({ firstname: '', lastname: '', callsign: '', email: '', password: '', password_confirmation: '', imagePreviewUrl: '' });
-  }
+    }).then(purple => {
+      if(purple.status === 403){
+        this.setState({ error: true, error_head: `Error ${purple.status}`, error_msg: purple.statusText, active: false });
+      }if(purple.status === 404){
+        this.setState({ error: true, error_head: `Error ${purple.status}`, error_msg: purple.statusText, active: false });
+      }if(purple.status >= 405){
+        this.setState({ error: true, error_head: `Error ${purple.status}`, error_msg: 'Sorry, we are having technical difficulties. Try again.', active: false });
+      }if(purple.status > 300 && purple.status < 400){
+        this.setState({ error: true, error_head: `Error ${purple.status}`, error_msg: "We can't accept that type of submission here. Please try again.", active: false });
+      }if(purple.status < 300){
+        return purple.json();
+      }}).then(response => {
+        console.log(response, "yay");
+        sessionStorage.setItem('api_token', 'Token token=' + response.data.attributes['api-token']);
+        sessionStorage.setItem('userId', response.data.id);
+        sessionStorage.setItem('mode', 'Explorer');
+        sessionStorage.setItem('beacons', []);
+        this.setState({ redirect_starmap: true });
+      }).catch(err => {
+        console.log(err, "boo!");
+      });
+      this.setState({ firstname: '', lastname: '', callsign: '', email: '', password: '', password_confirmation: '', imagePreviewUrl: '' });
+    }
 
   // handleAWSupload = (e) => {
   //   let file = this.state.avatar;

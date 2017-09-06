@@ -42,7 +42,6 @@ export default class ProseExplorerTemplate extends React.Component {
       },
       mode: 'cors'
     }).then(purple => {
-      console.log(purple);
       if(purple.status === 403){
         this.setState({ error: true, error_head: `Error ${purple.status}`, error_msg: purple.statusText });
       }if(purple.status === 404){

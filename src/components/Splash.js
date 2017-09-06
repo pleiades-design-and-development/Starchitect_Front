@@ -1,7 +1,6 @@
 import React from 'react';
 import {Redirect} from 'react-router';
 import {Button} from 'semantic-ui-react';
-import logo from '../starchitectLogo.svg'
 
 export default class Splash extends React.Component {
 
