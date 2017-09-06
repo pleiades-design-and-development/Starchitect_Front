@@ -99,15 +99,12 @@ export default class Base_Profile extends React.Component {
                 position='right center'
                 />
               </p>
-              {beacons.map((beacon, index) => (
-                <p><a href={`/${beacon}`} className='link-color'>{beacon}</a></p>
-                )
-              )}
-              {/*<p><Link to={'./Jupiter'} className='link-color'>Jupiter</Link></p>
+              {/*
+              <p><Link to={'./Jupiter'} className='link-color'>Jupiter</Link></p>
               <p><Link to={'./Io'} className='link-color'>Io</Link></p>
               <p><Link to={'./Europa'} className='link-color'>Europa</Link></p>
               <p><Link to={'./Mars'} className='link-color'>Mars</Link></p>*/}
-              <Link to='/Beacons' className='link-color'>More...</Link>
+              <Link to='/Beacons' className='link-color'>Beacons</Link>
             </Menu.Item>
             <Menu.Item name='feed_link'>
               <Link to='/Profile' className='link-color'>News Feed</Link>
@@ -119,7 +116,7 @@ export default class Base_Profile extends React.Component {
               <Link to='/CrewLounge' className='link-color'>Crew Lounge</Link>
             </Menu.Item>
             <Menu.Item>
-              <p className='starmap_link'><a href={'./Starmap'}>Return to Starmap</a></p>
+              <p className='starmap_link'><a href='./Starmap'>Return to Starmap</a></p>
             </Menu.Item>
           </Menu>
         </div>

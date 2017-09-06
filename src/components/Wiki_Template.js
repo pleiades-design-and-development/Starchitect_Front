@@ -10,8 +10,6 @@ import DataMoon from './DataMoon';
 
 const categories = {'Jupiter':'planet', 'Earth':'planet', 'Sol':'star', 'Mars':'planet', 'Mercury':'planet', 'Venus':'planet', 'Uranus':'planet', 'Neptune':'planet', 'Saturn':'planet', 'Moon':'moon'}
 
-// let listItem = JSON.stringify({ "op": "add", "path": "/beacons", "value": object, "beacons": 0 });
-
 export default class Wiki_Template extends React.Component {
   constructor(props) {
     super(props);
