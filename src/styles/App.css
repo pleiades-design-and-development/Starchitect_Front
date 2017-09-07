@@ -602,9 +602,18 @@
         margin-left: -1em;
     }
 
+    .pos2 {
+        position: absolute;
+        top: 40%;
+        width: 2em;
+        height: 2em;
+        margin-top: -1em;
+        margin-left: -6.75em;
+    }
+
     #sun,
     .planet,
-    #earth .moon {
+    #earth .moon, #mars .moon {
         position: absolute;
         top: 40%;
         left: 50%;
@@ -613,6 +622,16 @@
         margin-top: -0.5em;
         margin-left: -0.5em;
         border-radius: 50%;
+    }
+
+    #asteroid .asteroid {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        width: 1em;
+        height: 1em;
+        margin-top: -0.5em;
+        margin-left: -0.5em;
     }
 
     #sun {
@@ -671,22 +690,26 @@
     /* --------------------------------------------------------------------------- planets index */
 
     #mercury {
-        z-index: 10;
+        z-index: 11;
     }
 
     #venus {
-        z-index: 9;
+        z-index: 10;
     }
 
     #earth {
-        z-index: 8;
+        z-index: 9;
     }
 
     #moon {
-        z-index: 7;
+        z-index: 8;
     }
 
     #mars {
+        z-index: 7;
+    }
+
+    #asteroid {
         z-index: 6;
     }
 
@@ -707,7 +730,7 @@
     }
 
     #sun {
-        z-index: 11;
+        z-index: 12;
     }
     /* --------------------------------------------------------------------------- 2D view */
 
@@ -740,6 +763,12 @@
         left: 100%!important;
         top: 50%!important;
     }
+
+    .zoom-close .pos2 {
+        left: 100%!important;
+        top: 50%!important;
+    }
+
     /* --------------------------------------------------------------------------- stretched sizes */
 
     .scale-stretched #sun {
@@ -764,6 +793,17 @@
 
     .scale-stretched #mars .planet {
         font-size: 2.9em;
+    }
+
+    .scale-stretched #mars .moon {
+        font-size: 1.2em;
+    }
+
+    .scale-stretched #asteroid .asteroid {
+        width: 6em;
+        height: 120em;
+        margin-left: -3.5em;
+        margin-top: -40em;
     }
 
     .scale-stretched #jupiter .planet {
@@ -816,6 +856,27 @@
         height: 72em;
         margin-top: -36em;
         margin-left: -36em;
+    }
+
+    .scale-streched #mars .orbit{
+        width: 6em;
+        height: 6em;
+        margin-top: -3em;
+        margin-left: -3em;
+    }
+
+    #mars .orbit{
+        width: 6em;
+        height: 6em;
+        margin-top: -3em;
+        margin-left: -3em;
+    }
+
+    .scale-stretched #asteroid.orbit {
+        width: 83em;
+        height: 83em;
+        margin-top: -41em;
+        margin-left: -41em;
     }
 
     .scale-stretched #jupiter.orbit {
@@ -901,9 +962,14 @@
         transition-property: top, left;
     }
 
+    .pos2 {
+        transition-property: top, left;
+    }
+
     #solar-system,
     .orbit,
     .planet,
+    .asteroid,
     .satelite,
     .ring {
         transition-property: width, height, top, left, margin-left, margin-top, webkit-transform;
@@ -918,6 +984,8 @@
     #sun,
     .orbit,
     .pos,
+    .pos2,
+    .asteroid,
     .planet,
     .satelite,
     .ring,
@@ -936,6 +1004,10 @@
     }
 
     .pos {
+        transition-delay: 1s;
+    }
+
+    .pos2 {
         transition-delay: 1s;
     }
 
@@ -970,8 +1042,18 @@
         background-color: white;
     }
 
+    #mars .moon {
+        background-color: red;
+    }
+
     #mars .planet {
         background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAABGdBTUEAALGPC/xhBQAAAGBQTFRFsW89lWA2jVwzsm8+qGo72oVJrW08h1gxlWA15IpMrW09jlw0l2E2nGM3v3ZC3YdK3odKyHtE75BP8JFQ8JFQ8JFQ8JFQ8JFQw3hD8JFQ8JFQ8JFQ8JFQ8JFQ8JFQAAAAe3ooYQAAACB0Uk5Tk0+hrcTz6g7P5tkiYurz49bk79XR3vvm2PH26ezi2QCQ4vSgAAABm0lEQVQoz1VSWXaEMAzLLAw7ZHMSx0vvf8uaTtvX+icQYSRbch/vGrf7ftV0v43fV+59bNP+Oo6jtXAs0/YHWg1o4TxnqyG05bn+QOt0AUIRKWVV39qyvqF1f4VTFSqiZgWuerarz6D7KwyoqkI19k5UFYfjeUHbdJzEkLQS9cLCSELDsX24cVoCVYYMHXsphQk0Aw2v0W17OCv2CPwFIWnSBDAfmzOmSt0KmZhj1ZwERLU5N72GwsyIREwCKZtIsAe/uL3NpapW42ciMTWitXI8g9uDj/aCAEZoaqRHtf8ZmduPFAtW1kz2BWntXQRUo0FhTrVcKxLTZmNbi7Fd0NR8Vhsz5x6jZMHIrJrS3Nx98WAQ5lyJsXdGGxs0eeduS5Brs1+y2dZRe0EBajc3LuaHEKRks8qFIYrC0EZb79KM31qUbCO9l44mJWyXKY9mbMnkJzAeo0Ni/3hb+WynqDGkDJHNa/Okrd8BWJpPag1gHpdO5vL6G5tnC15rRBaI6sNj/Ru25Wjez3E+LTTbvxxaRB/PdtVj+4noJ91nOp3NTB6wAAAAAElFTkSuQmCC);
+    }
+
+    #asteroid .asteroid {
+      background-image: url('./asteriod-belt2.png');
+      background-size: contain;
+      background-repeat: repeat;
     }
 
     #jupiter .planet {
@@ -1267,7 +1349,7 @@
       padding: 2% 1% 2% 2%;
     }
 
-    #form-input-control-year, #form-input-control-position, #form-input-control-distance, #form-input-control-mass, #form-input-control-diameter, #form-input-control-orbital, #form-input-control-rotational, #form-input-control-temp, #form-input-control-element, #form-input-control-lumosity, #form-input-control-type, #form-input-control-gen,  #form-input-control-age, #form-input-control-period {
+    #form-input-control-year, #form-input-control-position, #form-input-control-distance, #form-input-control-mass, #form-input-control-diameter, #form-input-control-orbital, #form-input-control-rotational, #form-input-control-temp, #form-input-control-element, #form-input-control-lumosity, #form-input-control-type, #form-input-control-gen,  #form-input-control-age, #form-input-control-period, #form-input-control-parent {
       padding: 1%;
     }
 

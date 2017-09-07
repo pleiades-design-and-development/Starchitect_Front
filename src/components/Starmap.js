@@ -43,7 +43,22 @@ export default class Starmap extends React.Component {
               </div>
               <div id="mars" className="orbit">
                 <div className="pos">
+                  <div className="orbit">
+                    <div className="pos">
+                      <Link to='/Phobos'><div className="moon"></div></Link>
+                    </div>
+                  </div>
+                  <div className="orbit">
+                    <div className="pos2">
+                      <Link to='/Deimos'><div className="moon"></div></Link>
+                    </div>
+                  </div>
                   <Link to='/Mars'><div className="planet"></div></Link>
+                </div>
+              </div>
+              <div id="asteroid" className="orbit">
+                <div className="pos">
+                  <Link to='/Asteroid Belt'><div className="asteroid"></div></Link>
                 </div>
               </div>
               <div id="jupiter" className="orbit">

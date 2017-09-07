@@ -54,7 +54,7 @@ export default class FeedItem extends React.Component{
         const thisSubmission = submission.id;
         const { body, user_id } = this.state;
         const commentable_id = Number(thisSubmission);
-        const commentable_type = 'submission'
+        const commentable_type = 'Submission'
         let listItem = JSON.stringify({ body, user_id, commentable_id, commentable_type });
 
         fetch(`https://starchitect.herokuapp.com/api/v1/submissions/${thisSubmission}/comments`, {

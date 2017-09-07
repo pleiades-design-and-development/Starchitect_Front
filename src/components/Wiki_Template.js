@@ -8,7 +8,7 @@ import DataPlanet from './DataPlanet';
 import DataStar from './DataStar';
 import DataMoon from './DataMoon';
 
-const categories = {'Jupiter':'planet', 'Earth':'planet', 'Sol':'star', 'Mars':'planet', 'Mercury':'planet', 'Venus':'planet', 'Uranus':'planet', 'Neptune':'planet', 'Saturn':'planet', 'Moon':'moon'}
+const categories = {'Jupiter':'planet', 'Earth':'planet', 'Sol':'star', 'Mars':'planet', 'Mercury':'planet', 'Venus':'planet', 'Uranus':'planet', 'Neptune':'planet', 'Saturn':'planet', 'Moon':'moon', 'Phobos':'moon', 'Deimos':'moon' }
 
 export default class Wiki_Template extends React.Component {
   constructor(props) {
