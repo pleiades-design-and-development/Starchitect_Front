@@ -178,39 +178,39 @@ export default class DataPlanet extends React.Component {
           <Menu vertical id='hard_data_sidebar'>
             <Menu.Item>
               <p>Year Discovered:</p>
-              <p>{year2 || <Form className='hard_data_forms'><Form.Field className='hard_data_formfield' id='form-input-control-year' name='year' value={year2} control={Input} onChange={this.handleChange} /><Button circular icon='check circle' name='year' onClick={this.onClickHandler}/></Form>}</p>
+              <p>{year2 || <Form className='hard_data_forms'><Form.Field className='hard_data_formfield' id='form-input-control-year' name='year' value={year2} control={Input} onChange={this.handleChange} /><Button circular icon='check circle' name='year' size='mini' onClick={this.onClickHandler}/></Form>}</p>
             </Menu.Item>
             <Menu.Item >
               <p>Position in Solar System:</p>
-              <p>{position2 || <Form className='hard_data_forms'><Form.Field className='hard_data_formfield' id='form-input-control-position' name='position' value={position2} control={Input} onChange={this.handleChange} /><Button circular icon='check circle' name='position' onClick={this.onClickHandler}/></Form>}</p>
+              <p>{position2 || <Form className='hard_data_forms'><Form.Field className='hard_data_formfield' id='form-input-control-position' name='position' value={position2} control={Input} onChange={this.handleChange} /><Button circular icon='check circle' name='position' size='mini' onClick={this.onClickHandler}/></Form>}</p>
             </Menu.Item>
             <Menu.Item>
               <p>Distance from Sol:</p>
-              <p>{distance2 || <Form className='hard_data_forms'><Form.Field className='hard_data_formfield' id='form-input-control-distance' name='distance' value={distance2} control={Input} onChange={this.handleChange} /><Button circular icon='check circle' name='distance' onClick={this.onClickHandler}/></Form>}</p>
+              <p>{distance2 || <Form className='hard_data_forms'><Form.Field className='hard_data_formfield' id='form-input-control-distance' name='distance' value={distance2} control={Input} onChange={this.handleChange} /><Button circular icon='check circle' name='distance' size='mini' onClick={this.onClickHandler}/></Form>}</p>
             </Menu.Item>
             <Menu.Item>
               <p>Mass:</p>
-              <p>{mass2 || <Form className='hard_data_forms'><Form.Field className='hard_data_formfield' id='form-input-control-mass' name='mass' value={mass2} control={Input} onChange={this.handleChange} /><Button circular icon='check circle' name='mass' onClick={this.onClickHandler}/></Form>}</p>
+              <p>{mass2 || <Form className='hard_data_forms'><Form.Field className='hard_data_formfield' id='form-input-control-mass' name='mass' value={mass2} control={Input} onChange={this.handleChange} /><Button circular icon='check circle' name='mass' size='mini' onClick={this.onClickHandler}/></Form>}</p>
             </Menu.Item>
             <Menu.Item>
               <p>Diameter:</p>
-              <p>{diameter2 || <Form className='hard_data_forms'><Form.Field className='hard_data_formfield' id='form-input-control-diameter' name='diameter' value={diameter2} control={Input} onChange={this.handleChange} /><Button circular icon='check circle' name='diameter' onClick={this.onClickHandler}/></Form>}</p>
+              <p>{diameter2 || <Form className='hard_data_forms'><Form.Field className='hard_data_formfield' id='form-input-control-diameter' name='diameter' value={diameter2} control={Input} onChange={this.handleChange} /><Button circular icon='check circle' name='diameter' size='mini' onClick={this.onClickHandler}/></Form>}</p>
             </Menu.Item>
             <Menu.Item >
               <p>Orbital Period</p>
-              <p>{orbital2 || <Form className='hard_data_forms'><Form.Field className='hard_data_formfield' id='form-input-control-orbital' name='orbital' value={orbital2} control={Input} onChange={this.handleChange} /><Button circular icon='check circle' name='orbital' onClick={this.onClickHandler}/></Form>}</p>
+              <p>{orbital2 || <Form className='hard_data_forms'><Form.Field className='hard_data_formfield' id='form-input-control-orbital' name='orbital' value={orbital2} control={Input} onChange={this.handleChange} /><Button circular icon='check circle' name='orbital' size='mini' onClick={this.onClickHandler}/></Form>}</p>
             </Menu.Item>
             <Menu.Item>
               <p>Rotation Period</p>
-              <p>{rotational2 || <Form className='hard_data_forms'><Form.Field className='hard_data_formfield' id='form-input-control-rotational' name='rotational' value={rotational2} control={Input} onChange={this.handleChange} /><Button circular icon='check circle' name='rotational' onClick={this.onClickHandler}/></Form>}</p>
+              <p>{rotational2 || <Form className='hard_data_forms'><Form.Field className='hard_data_formfield' id='form-input-control-rotational' name='rotational' value={rotational2} control={Input} onChange={this.handleChange} /><Button circular icon='check circle' name='rotational' size='mini' onClick={this.onClickHandler}/></Form>}</p>
             </Menu.Item>
             <Menu.Item>
               <p>Average Surface Temperature</p>
-              <p>{temp2 || <Form className='hard_data_forms'><Form.Field className='hard_data_formfield' id='form-input-control-temp' name='temp' value={temp2} control={Input} onChange={this.handleChange} /><Button circular icon='check circle' name='temp' onClick={this.onClickHandler}/></Form>}</p>
+              <p>{temp2 || <Form className='hard_data_forms'><Form.Field className='hard_data_formfield' id='form-input-control-temp' name='temp' value={temp2} control={Input} onChange={this.handleChange} /><Button circular small icon='check circle' name='temp' size='mini' onClick={this.onClickHandler}/></Form>}</p>
             </Menu.Item>
             <Menu.Item>
               <p>Atmosphere Primary Element</p>
-              <p>{element2 || <Form className='hard_data_forms'><Form.Field className='hard_data_formfield' id='form-input-control-element' name='element' value={element2} control={Input} onChange={this.handleChange} /><Button circular icon='check circle' name='element' onClick={this.onClickHandler}/></Form>}</p>
+              <p>{element2 || <Form className='hard_data_forms'><Form.Field className='hard_data_formfield' id='form-input-control-element' name='element' value={element2} control={Input} onChange={this.handleChange} /><Button circular icon='check circle' name='element' size='mini' onClick={this.onClickHandler}/></Form>}</p>
             </Menu.Item>
           </Menu>
         </div>

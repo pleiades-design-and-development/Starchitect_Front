@@ -59,7 +59,7 @@ export default class Wiki_Template extends React.Component {
 
       const beacon = this.state.object
 
-      let listItem = JSON.stringify({ "beacons": Object.assign([...beacons, object]) });
+      let listItem = JSON.stringify({ "beacons": `{${[...beacons, object]}}` });
 
       fetch(`https://starchitect.herokuapp.com/api/v1/users/${userId}`, {
         method: 'PATCH',
@@ -83,14 +83,14 @@ export default class Wiki_Template extends React.Component {
   render() {
     const { object, image, mode, beacons } = this.state;
 
-    const active = beacons.includes(object) ? 'active_beacon' : null;
+    const active = beacons.includes(object) ? 'active_beacon' : 'beacon';
 
     return (
       <div id='wiki_template'>
         <div className='wiki_header'>
           <img src={image} alt='Astronomical object' className='wiki_img' />
           <h2 className='wiki_title'>{object}</h2>
-          <div className='beacon' onClick={this.handleBeaconClick} className={active}>
+          <div className={active} onClick={this.handleBeaconClick} >
             <p id='beacon2'>Set a Beacon!</p>
             <svg width="50%" height="50%" viewBox="0 0 643 601" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                 <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">

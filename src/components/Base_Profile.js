@@ -32,7 +32,13 @@ export default class Base_Profile extends React.Component {
       return data.json();
     }).then((response) => {
       console.log(response, "yay");
-      this.setState({user: response.data, beacons: response.data.attributes.beacons});
+      const beaconsWithLimit = response.data.attributes.beacons.map((beacon, index) => {
+        if(index < 3){
+          return beacon;
+        }
+      })
+      console.log(beaconsWithLimit);
+      this.setState({user: response.data, beacons: beaconsWithLimit});
     }).catch(err => {
       console.log(err, "boo!");
     });
@@ -71,7 +77,7 @@ export default class Base_Profile extends React.Component {
               <Button active={active} id='toggle' onClick={this.handleModeClick}>
                 <Popup
                 trigger={mode_text[mode]}
-                content='^ Click to switch between modes'
+                content=' Click to switch between modes'
                 inverted
                 position='right center'
                 />
@@ -79,10 +85,9 @@ export default class Base_Profile extends React.Component {
             </Menu.Item>
             <Menu.Item name='last-location'>
               <p className='head'>
-                Last Known Location:
                 <Popup
-                trigger={<Icon circular name='question circle outline' className='location_help' />}
-                content='^ Here is the last location of your ship. Click to fast travel back.'
+                trigger= {<span>Last Known Location</span>}
+                content=' Here is the last location of your ship. Click to fast travel back.'
                 inverted
                 position='right center'
                 />
@@ -91,20 +96,17 @@ export default class Base_Profile extends React.Component {
             </Menu.Item>
             <Menu.Item name='beacons'>
               <p className='head'>
-                Beacons:
                 <Popup
-                trigger={<Icon circular name='question circle outline' className='beacons_help' />}
-                content='^ Here are the beacons you saved. Click to fast travel to one.'
+                trigger={<p>Beacons</p>}
+                content=' Here are the beacons you saved. Click to fast travel to one.'
                 inverted
                 position='right center'
                 />
               </p>
-              {/*
-              <p><Link to={'./Jupiter'} className='link-color'>Jupiter</Link></p>
-              <p><Link to={'./Io'} className='link-color'>Io</Link></p>
-              <p><Link to={'./Europa'} className='link-color'>Europa</Link></p>
-              <p><Link to={'./Mars'} className='link-color'>Mars</Link></p>*/}
-              <Link to='/Beacons' className='link-color'>Beacons</Link>
+              {beacons.map((beacon, index) => (
+                  <p key = {index}><Link to={`./${beacon}`} className='link-color'>{beacon}</Link></p>
+              ))}
+              <Link to='/Beacons' className='link-color'>More...</Link>
             </Menu.Item>
             <Menu.Item name='feed_link'>
               <Link to='/Profile' className='link-color'>News Feed</Link>

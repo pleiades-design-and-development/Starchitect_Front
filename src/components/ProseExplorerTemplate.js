@@ -136,18 +136,14 @@ export default class ProseExplorerTemplate extends React.Component {
         <Form size='small' key='big' onSubmit={this.handleSubmit} id='prose_form' error={error} success={success}>
           <Form.Field id='form-input-control-title' name='title' value={title} control={Input} label='Title' onChange={this.handleChange} />
           <Form.TextArea label='Add to the Starchive!' maxLength='7000' name='body' value={body} onChange={this.handleChange} placeholder='Give us the facts, Explorer!  Tell us more about this astronomical object' />
-          <Message
-            style={{color: 'black'}}
-            success
-            header='Submission Upload Complete'
-            content='Thank you for your contribution to the Starchive! You are a great addition to the Explorer Corps.'
-          />
-          <Message
-            style={{color: 'black'}}
-            error
-            header={error_head}
-            content={error_msg}
-          />
+          <Message style={{color: 'black'}} success>
+            <Message.Header>'Submission Upload Complete'</Message.Header>
+            <Message.Content>'Thank you for your contribution to the Starchive! You are a great addition to the Explorer Corps.'</Message.Content>
+          </Message>
+          <Message style={{color: 'black'}} error>
+            <Message.Header>{error_head}</Message.Header>
+            <Message.Content>{error_msg}</Message.Content>
+          </Message>
           <Button type='submit'>Submit</Button>
           <Loader inverted active={active} size='huge'>Loading</Loader>
         </Form>
