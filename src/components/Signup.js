@@ -149,7 +149,7 @@ export default class Signup extends React.Component {
                 <Form.Field id='form-input-control-password_confirmation' name='password_confirmation' type='password' value={password_confirmation} control={Input} label='Please confirm your high command authorization code?' placeholder='Please confirm your password' onChange={this.handleChange} />
             </div>
           </Grid.Column>
-          <Grid.Column width={6}>
+          {/*<Grid.Column width={6}>
             <div id='signup_container2'>
                 <label htmlFor="avatar">Choose an Avatar:</label>
                 <Input fluid type='file' name='avatar' size='mini' onChange={(e)=>this._handleImageChange(e)}/>
@@ -163,7 +163,7 @@ export default class Signup extends React.Component {
                 <Loader active={active} size='huge'>Loading</Loader>
                 </Dimmer>
             </div>
-          </Grid.Column>
+          </Grid.Column> */}
           <Grid.Column width={2}></Grid.Column>
         </Grid.Row>
         <Grid.Row centered>
