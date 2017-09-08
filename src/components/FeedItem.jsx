@@ -141,7 +141,7 @@ export default class FeedItem extends React.Component{
                                     <Button size='mini' icon style={{marginLeft: '1vw'}} onClick={this.addLike}>{likes} <Icon color={active} name='like outline'/></Button>
                                   </Feed.Like>
                                   <Form onSubmit={this.handleEnter} className='comment_form' error={error}>
-                                    <Form.Field style={{marginTop: '2vh'}} id='form-input-control-body' name='body' value={body} control={Input} transparent placeholder='Write a comment...' onChange={this.handleChange} />
+                                    <Form.Field style={{marginTop: '2vh'}} id='form-input-control-body' name='body' value={body} control={Input} transparent placeholder='Write a comment...' onChange={this.handleChange}/>
                                     <Message
                                       style={{color: 'black'}}
                                       success
@@ -157,8 +157,8 @@ export default class FeedItem extends React.Component{
                                   <Button type='submit' icon='check circle' id='comment_submit'></Button>
                                   </Form>
                                 </div>
-                                <Accordion>
-                                    <Accordion.Title id='comment_title'>
+                                <Accordion style={{color: 'white'}}>
+                                    <Accordion.Title id='comment_title' style={{color: 'white'}}>
                                         <Icon name='dropdown' />
                                         <span>See all comments...</span>
                                     </Accordion.Title>
